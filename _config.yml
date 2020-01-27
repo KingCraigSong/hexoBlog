@@ -11,12 +11,6 @@ author: John Doe
 language: en
 timezone: ''
 
-node_sass:
-  debug: false
-  outputStyle: nested
-  precision: 5
-  sourceComments: false
-
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
@@ -99,9 +93,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: book
+theme: tree
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+valine:
+    enableComment: false 
+    enableCounter: false
