@@ -4,18 +4,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
       - name: Checkout master branch
         uses: actions/checkout@master
-        with:
-          fetch-depth: 1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
       - name: install
         run: |
           npm install -g hexo-cli
@@ -25,8 +20,6 @@ jobs:
           npm install hexo-renderer-pug hexo-renderer-stylus --save
           npm install @upupming/hexo-renderer-markdown-it-plus --save
           npm install hexo-generator-search --save
-      - name: Clean And Regenerate 
-        run: |
           hexo clean
           hexo generate
       - name: Build and Deploy
