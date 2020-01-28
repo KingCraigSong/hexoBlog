@@ -8,7 +8,7 @@ title: Hexo Blog # 网站标题
 subtitle: # 网站副标题
 description: # 网站描述(SEO)
 author: Xiaomo # 您的名字
-language: # 网站使用的语言
+language: en # 网站使用的语言
 timezone: # 网站时区
 
 # 网址
@@ -74,9 +74,17 @@ pagination_dir: page # 分页目录
 # 拓展
 ## 插件：https://hexo.io/plugins/ #
 ## 主题：https://hexo.io/themes/
-theme: book # 当前主题名称。值为false时禁用主题
+theme: butterfly # 当前主题名称。值为false时禁用主题
 
 # 部署
 ## 文档: https://hexo.io/docs/deployment.html
 deploy: # 部署部分的设置
   type: # 网站类型
+
+markdown_it_plus:
+  plugins:
+    - plugin:
+      name: '@neilsustc/markdown-it-katex'
+      enable: true
+      options:
+        strict: false
