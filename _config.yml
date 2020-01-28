@@ -3,23 +3,31 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: Xiaomo's
+subtitle: 'Personal Blog'
 description: ''
 keywords:
-author: John Doe
+author: Xiaomo
 language: en
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://hexo.xmsong.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+menu:
+  Home: / || fa fa-home
+  Archives: /archives/ || fa fa-archive
+  Tags: /tags/ || fa fa-tags
+  Categories: /categories/ || fa fa-folder-open
+  Link: /link/ || fa fa-link
+  About: /about/ || fa fa-heart
 
 # Directory
 source_dir: source
@@ -46,11 +54,14 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
+
+code_word_wrap: true
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -99,3 +110,86 @@ theme: Butterfly
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+social:
+  fa fa-github: https://github.com/KingCraigSong
+
+post_meta:
+  date_type: both #or created or updated 文章日期是創建日或者更新日或都顯示
+  categories: true # or false 是否顯示分類
+  tags: true # or false 是否顯示標籤
+
+copyright: false
+
+reward:
+  enable: false
+  QR_code:
+    - itemlist:
+        img: /img/wechat.png
+        text: 微信
+    # - itemlist:
+    #     img: /img/alipay.jpg
+    #     text: 支付寶
+avatar: /img/avatar.jpeg
+
+toc:
+  enable: true
+  number: true   #顯示章節數字
+
+auto_open_sidebar:
+  enable: true
+
+related_post:
+  enable: true
+  limit: 6 # 顯示推薦文章數目
+  date_type: created # or created or updated 文章日期顯示创建日或者更新日
+
+since: 2020
+
+# 夜間模式
+darkmode:
+  enable: true
+autoChangeMode: false
+
+readmode:
+  enable: true
+
+aside:
+  position: right # left or right
+  card_author: true
+  card_recent_post: true
+  card_categories: true
+  card_tags: true
+
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+local_search:
+  enable: false
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
+search:
+  path: search.xml
+  field: post
+  content: true
+
+runtimeshow:
+  enable: true
+  start_date: 1/1/2020 00:00:00 
+
+post_copyright:
+  enable: false
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# Flink:
+#   headline: 友情鏈接
+#   info_headline: 我的Blog資料
+#   name: Blog 名字： JerryC
+#   address: Blog 地址： https://jerryc.me/
+#   avatar: Blog 頭像： https://jerryc.me/img/avatar.png
+#   info: Blog 簡介： 今日事,今日畢
+#   comment: 如果需要交換友鏈,請留言
