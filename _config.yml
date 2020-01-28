@@ -1,195 +1,82 @@
-# Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
+# Hexo配置
+## 文档: https://hexo.io/docs/configuration.html
+## 源码: https://github.com/hexojs/hexo/
+## hexo版本：hexo-cli: 1.1.0
 
-# Site
-title: Xiaomo's
-subtitle: 'Personal Blog'
-description: ''
-keywords:
-author: Xiaomo
-language: en
-timezone: ''
+# 网站
+title: Hexo Blog # 网站标题
+subtitle: # 网站副标题
+description: # 网站描述(SEO)
+author: Xiaomo # 您的名字
+language: # 网站使用的语言
+timezone: # 网站时区
 
-# URL
+# 网址
+## 如果你的网站放在子目录中，请将url设置为为'http://yoursite.com/child'，将根目录root设置为'/child/'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hexo.xmsong.cn
-root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
-pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+url: http://hexo.xmsong.cn # 网址
+root: / # 网站根目录
+permalink: :year/:month/:day/:title/ # 文章的永久链接
+permalink_defaults: # 永久链接中各部分的默认值
 
-menu:
-  Home: / || fa fa-home
-  Archives: /archives/ || fa fa-archive
-  Tags: /tags/ || fa fa-tags
-  Categories: /categories/ || fa fa-folder-open
-  Link: /link/ || fa fa-link
-  About: /about/ || fa fa-heart
+# 目录
+source_dir: source # 资源文件夹，这个文件夹用来存放内容。
+public_dir: public # 公共文件夹，这个文件夹用于存放生成的站点文件。
+tag_dir: tags # 标签文件夹
+archive_dir: archives # 归档文件夹
+category_dir: categories # 分类文件夹
+code_dir: downloads/code # include code文件夹
+i18n_dir: :lang # 国际化（i18n）文件夹
+skip_render: # 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。
 
-# Directory
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
+# 文章
+new_post_name: :title.md # 新文章的文件名称
+default_layout: post # 预设布局
+titlecase: false # 将标题转换为title case
+external_link: true # 在新标签中打开外部链接
+filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写
+render_drafts: false # 显示草稿
+post_asset_folder: false # 启动asset文件夹
+relative_link: false # 把链接改为与根目录的相对位址
+future: true # 显示未来的文章
+highlight: # 代码块的设置
+  enable: true # 启动设置
+  line_number: true # 行号
+  auto_detect: false # 自动检测
+  tab_replace: # tab替换
+  
+# 主页设置
+# path: Root path for your blogs index page. (默认 = '')
+# per_page: Posts displayed per page. (0 = 关闭分页功能)
+# order_by: Posts order. (默认情况下按日期降序排序)
+index_generator: # 索引生成
+  path: '' # 路径
+  per_page: 10 # 每页展示文章数
+  order_by: -date # 排序依据
+  
+# 分类 & 标签
+default_category: uncategorized # 默认分类
+category_map: # 分类别名
+tag_map: # 标签别名     
 
-# Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
-  exclude: ''
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
-highlight:
-  enable: true
-  line_number: false
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
-
-code_word_wrap: true
-
-
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ''
-  per_page: 10
-  order_by: -date
-
-# Category & Tag
-default_category: uncategorized
-category_map:
-tag_map:
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
+# 日期 / 时间格式
+## Hexo使用Moment.js来解析和显示日期
+## 您可以按下面的文档描述自定义日期格式
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+date_format: YYYY-MM-DD # 日期格式
+time_format: HH:mm:ss # 时间格式
 
-# Pagination
-## Set per_page to 0 to disable pagination
-per_page: 10
-pagination_dir: page
+# 分页 & 标签
+## 将per_page设置为0可禁用分页
+per_page: 10 # 每页显示的文章量 (0 = 关闭分页功能)
+pagination_dir: page # 分页目录
 
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
+# 拓展
+## 插件：https://hexo.io/plugins/ #
+## 主题：https://hexo.io/themes/
+theme: book # 当前主题名称。值为false时禁用主题
 
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: Butterfly
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: ''
-
-social:
-  fa fa-github: https://github.com/KingCraigSong
-
-post_meta:
-  date_type: both #or created or updated 文章日期是創建日或者更新日或都顯示
-  categories: true # or false 是否顯示分類
-  tags: true # or false 是否顯示標籤
-
-copyright: false
-
-reward:
-  enable: false
-  QR_code:
-    - itemlist:
-        img: /img/wechat.png
-        text: 微信
-    # - itemlist:
-    #     img: /img/alipay.jpg
-    #     text: 支付寶
-avatar: /img/avatar.jpeg
-
-toc:
-  enable: true
-  number: true   #顯示章節數字
-
-auto_open_sidebar:
-  enable: true
-
-related_post:
-  enable: true
-  limit: 6 # 顯示推薦文章數目
-  date_type: created # or created or updated 文章日期顯示创建日或者更新日
-
-since: 2020
-
-# 夜間模式
-darkmode:
-  enable: true
-autoChangeMode: false
-
-readmode:
-  enable: true
-
-aside:
-  position: right # left or right
-  card_author: true
-  card_recent_post: true
-  card_categories: true
-  card_tags: true
-
-busuanzi:
-  site_uv: true
-  site_pv: true
-  page_pv: true
-
-local_search:
-  enable: false
-  labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
-search:
-  path: search.xml
-  field: post
-  content: true
-
-runtimeshow:
-  enable: true
-  start_date: 1/1/2020 00:00:00 
-
-post_copyright:
-  enable: false
-  license: CC BY-NC-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-# Flink:
-#   headline: 友情鏈接
-#   info_headline: 我的Blog資料
-#   name: Blog 名字： JerryC
-#   address: Blog 地址： https://jerryc.me/
-#   avatar: Blog 頭像： https://jerryc.me/img/avatar.png
-#   info: Blog 簡介： 今日事,今日畢
-#   comment: 如果需要交換友鏈,請留言
+# 部署
+## 文档: https://hexo.io/docs/deployment.html
+deploy: # 部署部分的设置
+  type: # 网站类型

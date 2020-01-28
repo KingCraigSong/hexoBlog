@@ -7,9 +7,7 @@ branches:
   only:
     - master # build master branch only
 script:
-  - npm install cheerio@0.22.0 --save
-  - npm install hexo-renderer-pug hexo-renderer-stylus
-  - npm install hexo-generator-search --save
+  - npm install hexo-renderer-scss --save
   - hexo clean #清除旧的内容
   - hexo generate # generate static files
 deploy:
