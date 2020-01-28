@@ -9,7 +9,7 @@ menu:
   Archives: /archives/ || fa fa-archive
   Tags: /tags/ || fa fa-tags
   Categories: /categories/ || fa fa-folder-open
-  Link: /link/ || fa fa-link
+  # Link: /link/ || fa fa-link
   About: /about/ || fa fa-heart
   # List||fa fa-list:
   #   - Music || /music/ || fa fa-music
@@ -52,9 +52,9 @@ copy:
 #   icon: link
 # ---------------
 social:
-  # fa fa-github: https://github.com/jerryc127
+  fa fa-github: https://github.com/KingCraigSong
   fa fa-envelope: mailto:455716751@qq.com
-  # fa fa-rss: /atom.xml
+  fa fa-rss: /atom.xml
 
 ####    search    ####
 # Algolia search
@@ -145,7 +145,7 @@ auto_open_sidebar:
   enable: true
 
 post_copyright:
-  enable: true
+  enable: false
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
