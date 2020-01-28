@@ -1,0 +1,39 @@
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+
+      - name: Setup nodejs
+        uses: dcodeIO/setup-node-nvm@master
+        with:
+          node-version: node
+          node-mirror: https://nodejs.org/download/v8-canary/
+
+      - name: Dependency install
+        run: |
+          npm install -g hexo-cli
+          npm un hexo-renderer-marked --save
+          npm un hexo-math --save
+          npm install cheerio@0.22.0 --save
+          npm install hexo-renderer-pug hexo-renderer-stylus --save
+          npm install @upupming/hexo-renderer-markdown-it-plus --save
+          npm install hexo-generator-search --save
+      
+      - name: Clean And Regenerate 
+        run: |
+          hexo clean
+          hexo generate
+          
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: eea94ebac300c75ae3bae0079c468376d374c9f0
+          BRANCH: gh-pages
+          FOLDER: public
