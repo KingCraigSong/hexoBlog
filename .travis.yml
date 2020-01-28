@@ -9,7 +9,7 @@ branches:
 script:
   - npm un hexo-renderer-marked --save
   - npm un hexo-math --save
-  - npm install cheerio@0.22.0 –save
+  - npm install cheerio@0.22.0 –-save
   - npm install hexo-renderer-pug hexo-renderer-stylus --save
   - npm install @upupming/hexo-renderer-markdown-it-plus --save
   - hexo clean
