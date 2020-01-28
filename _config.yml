@@ -74,7 +74,7 @@ pagination_dir: page # 分页目录
 # 拓展
 ## 插件：https://hexo.io/plugins/ #
 ## 主题：https://hexo.io/themes/
-theme: butterfly # 当前主题名称。值为false时禁用主题
+theme: Butterfly # 当前主题名称。值为false时禁用主题
 
 # 部署
 ## 文档: https://hexo.io/docs/deployment.html
