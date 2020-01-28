@@ -7,8 +7,6 @@ branches:
   only:
     - master # build master branch only
 script:
-  - npm install cheerio@0.22.0 –save
-  - npm install hexo-renderer-pug hexo-renderer-stylus --save
   - npm un hexo-renderer-marked --save
   - npm un hexo-math --save
   - npm i @upupming/hexo-renderer-markdown-it-plus --save
