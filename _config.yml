@@ -88,3 +88,8 @@ markdown_it_plus:
       enable: true
       options:
         strict: false
+
+search:
+  path: search.xml
+  field: post
+  content: true

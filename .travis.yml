@@ -12,6 +12,7 @@ script:
   - npm install cheerio@0.22.0 --save
   - npm install hexo-renderer-pug hexo-renderer-stylus --save
   - npm install @upupming/hexo-renderer-markdown-it-plus --save
+  - npm install hexo-generator-search --save
   - hexo clean
   - hexo generate
 deploy:
