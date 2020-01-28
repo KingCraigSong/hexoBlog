@@ -9,9 +9,10 @@ branches:
 script:
   - npm un hexo-renderer-marked --save
   - npm un hexo-math --save
-  - npm i @upupming/hexo-renderer-markdown-it-plus --save
-  - hexo clean #清除旧的内容
-  - hexo generate # generate static files
+  - npm install hexo-renderer-pug hexo-renderer-stylus --save
+  - npm install @upupming/hexo-renderer-markdown-it-plus --save
+  - hexo clean
+  - hexo generate
 deploy:
   provider: pages
   skip-cleanup: true
