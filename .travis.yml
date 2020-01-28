@@ -9,6 +9,7 @@ branches:
 script:
   - npm install cheerio@0.22.0 --save
   - npm install hexo-renderer-pug hexo-renderer-stylus
+  - npm install hexo-generator-search --save
   - hexo generate # generate static files
 deploy:
   provider: pages
