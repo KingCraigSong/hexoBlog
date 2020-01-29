@@ -33,7 +33,7 @@ skip_render: # 跳过指定文件的渲染，您可使用 glob 表达式来匹�
 new_post_name: :title.md # 新文章的文件名称
 default_layout: post # 预设布局
 titlecase: false # 将标题转换为title case
-external_link: true # 在新标签中打开外部链接
+external_link: false # 在新标签中打开外部链接
 filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false # 显示草稿
 post_asset_folder: false # 启动asset文件夹
@@ -93,3 +93,12 @@ search:
   path: search.xml
   field: post
   content: true
+
+# mermaid chart
+## mermaid url https://github.com/knsv/mermaid
+# find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+mermaid:
+  enable: true
+  version: "7.1.2"
+  options:
+    #startOnload: true  // default true
