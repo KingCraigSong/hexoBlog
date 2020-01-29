@@ -534,11 +534,11 @@ translate:
 
 #閲讀模式
 readmode:
-  enable: true
+  enable: false
 
 # 夜間模式
 darkmode:
-  enable: true
+  enable: false
 
 # 自動切換 dark mode和 light mode
 # autoChangeMode: 1  跟隨系統而變化，不支持的瀏覽器/系統將按照時間晚上6點到早上6點之間切換為 dark mode

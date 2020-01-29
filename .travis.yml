@@ -14,6 +14,8 @@ script:
   - npm install @upupming/hexo-renderer-markdown-it-plus --save
   - npm install hexo-generator-search --save
   - npm install hexo-filter-mermaid-diagrams
+  - npm uninstall hexo-generator-index --save
+  - npm install hexo-generator-index-pin-top --save
   - hexo clean
   - hexo generate
 deploy:
