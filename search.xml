@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>书单</title>
+      <link href="/2020/01/29/%E4%B9%A6%E5%8D%95/"/>
+      <url>/2020/01/29/%E4%B9%A6%E5%8D%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="计算机"><a class="markdownIt-Anchor" href="#计算机"></a> 计算机</h2><table><thead><tr><th>科目</th><th>最佳书籍</th><th>最佳视频</th></tr></thead><tbody><tr><td>分布式系统</td><td>《分布式系统原理与范型》（中文第二版，英文第三版）</td><td></td></tr><tr><td>操作系统</td><td>《操作系统导论》</td><td>Berkeley CS 162</td></tr><tr><td>数学知识</td><td>《计算机科学中的数学》</td><td>Tom Leighton’s MIT 6.042J</td></tr><tr><td>数据库</td><td>《Readings in Database Systems》 （暂无中译本）</td><td>Joe Hellerstein’s Berkeley CS 186</td></tr><tr><td>算法与数据结构</td><td>《算法设计手册》</td><td>Steven Skiena’s lectures</td></tr><tr><td>编程</td><td>《计算机程序的构造和解释》</td><td>Brian Harvey’s Berkeley CS 61A</td></tr><tr><td>编程语言与编译器</td><td>《编译原理》</td><td>Alex Aiken’s course on Lagunita</td></tr><tr><td>计算机架构</td><td>《计算机组成与设计》</td><td>Berkeley CS 61C</td></tr><tr><td>计算机网络</td><td>《计算机网络：自顶向下方法》</td><td>Stanford CS 144</td></tr></tbody></table>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>增广贤文</title>
       <link href="/2020/01/29/%E5%A2%9E%E5%B9%BF%E8%B4%A4%E6%96%87/"/>
       <url>/2020/01/29/%E5%A2%9E%E5%B9%BF%E8%B4%A4%E6%96%87/</url>
