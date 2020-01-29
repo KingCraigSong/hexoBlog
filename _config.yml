@@ -100,5 +100,4 @@ search:
 mermaid:
   enable: true
   version: "7.1.2"
-  options:
-    #startOnload: true  // default true
+#   options: 
