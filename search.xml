@@ -4,6 +4,70 @@
   
     
     <entry>
+      <title>Spring and Spring MVC 总结</title>
+      <link href="/2020/01/29/Spring&amp;SpringMVC%E6%80%BB%E7%BB%93/"/>
+      <url>/2020/01/29/Spring&amp;SpringMVC%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么使用spring"><a class="markdownIt-Anchor" href="#为什么使用spring"></a> 为什么使用Spring</h2><ol><li>方便解耦，简化开发<br>通过Spring提供的IoC容器，可以将对象之间的依赖关系交由Spring进行控制，避免硬编码所造成的过度程序耦合。</li><li>AOP编程的支持<br>通过Spring提供的AOP功能，方便进行面向切面的编程，如性能监测、事务管理、日志记录等。</li><li>声明式事务的支持</li><li>方便集成各种优秀框架</li><li>降低Java EE API的使用难度<br>如对JDBC，JavaMail，远程调用等提供了简便封装</li></ol><h2 id="什么是ioc为什使用ioc"><a class="markdownIt-Anchor" href="#什么是ioc为什使用ioc"></a> 什么是IoC，为什使用IoC</h2><p>IoC全称Iversion of Controller，控制反转。<br>这概念是说你不用创建对象，而只需要描述它如何被创建。你不在代码里直接组装你的组件和服务，但是要在配置文件里描述哪些组件需要哪些服务，之后一个容器（IOC容器）负责把他们组装起来。<br>它能指导我们如何设计出松耦合、更优良的程序。</p><h2 id="什么是aop为什么使用aop"><a class="markdownIt-Anchor" href="#什么是aop为什么使用aop"></a> 什么是AOP，为什么使用AOP</h2><p>AOP全称：Aspect-Oriented Programming，面向切面编程。<br>AOP，面向切面编程，就是把可重用的功能提取出来，然后将这些通用功能在合适的时候织入到应用程序中，比如事务管理、权限控制、日志记录、性能统计等。<br>AOP并没有帮助我们解决任何新的问题，它只是提供了一种更好的办法，能够用更少的工作量来解决现有的一些问题，使得系统更加健壮，可维护性更好。</p><h2 id="什么是spring的事务管理"><a class="markdownIt-Anchor" href="#什么是spring的事务管理"></a> 什么是Spring的事务管理</h2><p>事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。<br>开发中为了避免这种情况一般都会进行事务管理。<br>Spring的声明式事务通常是指在配置文件中对事务进行配置声明，其中包括了很多声明属性，它是通过Spring Proxy帮你做代理，自己不用额外的写代码，只要在Spring配置文件中声明即可；通常用在数据库的操作里面；<br>编程式事务就是指通过硬编码的方式做事务处理，这种处理方式需要写代码，事务中的逻辑可以自己定制；可以是数据库的东东，也可以是其他的操作。<br>Spring中也有自己的事务管理机制，一般是使用TransactionMananger进行管理，可以通过Spring的注入来完成此功能。</p><h2 id="spring框架支持以下五种bean的作用域"><a class="markdownIt-Anchor" href="#spring框架支持以下五种bean的作用域"></a> Spring框架支持以下五种bean的作用域</h2><ul><li>singleton<br>默认值，bean在每个Spring ioc 容器中只有一个实例。</li><li>prototype<br>一个bean的定义可以有多个实例。</li><li>request<br>每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。</li><li>session<br>在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。</li><li>global-session<br>在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。</li><li></li></ul><h2 id="什么是spring的mvc框架"><a class="markdownIt-Anchor" href="#什么是spring的mvc框架"></a> 什么是Spring的MVC框架</h2><p>Spring 配备构建Web 应用的全功能MVC框架。Spring可以很便捷地和其他MVC框架集成，如Struts，Spring 的MVC框架用控制反转把业务对象和控制逻辑清晰地隔离。它也允许以声明的方式把请求参数和业务对象绑定。<br>spring mvc是一个基于mvc的web框架。spring mvc是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合。</p><h2 id="如何启用注解"><a class="markdownIt-Anchor" href="#如何启用注解"></a> 如何启用注解</h2><p><code>&lt;context:annotation-config/&gt;</code><br>如果使用<code>&lt;context:component-scan base-package=&quot;com.tgb.web.controller.annotation&quot;&gt; &lt;/context:component-scan&gt;</code> 则上面内容可以省略</p><h2 id="spring-mvc的请求流程"><a class="markdownIt-Anchor" href="#spring-mvc的请求流程"></a> Spring MVC的请求流程</h2><ul><li>第一步：发起请求到前端控制器(DispatcherServlet)</li><li>第二步：前端控制器请求HandlerMapping查找Handler可以根据xml配置、注解进行查找</li><li>第三步：处理器映射器HandlerMapping向前端控制器返回Handler</li><li>第四步：前端控制器调用处理器适配器去执行Handler</li><li>第五步：处理器适配器去执行Handler</li><li>第六步：Handler执行完成给适配器返回ModelAndView</li><li>第七步：处理器适配器向前端控制器返回ModelAndView。ModelAndView是springmvc框架的一个底层对象，包括 Model和view</li><li>第八步：前端控制器请求视图解析器去进行视图解析，根据逻辑视图名解析成真正的视图(jsp)</li><li>第九步：视图解析器向前端控制器返回View</li><li>第十步：前端控制器进行视图渲染。视图渲染将模型数据(在ModelAndView对象中)填充到request域</li><li>第十一步：前端控制器向用户响应结果</li></ul><h2 id="webxml的配置"><a class="markdownIt-Anchor" href="#webxml的配置"></a> web.xml的配置</h2><h2 id="注解的处理器映射器和适配器"><a class="markdownIt-Anchor" href="#注解的处理器映射器和适配器"></a> 注解的处理器映射器和适配器</h2><p>spring3.1之后使用<code>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping</code>注解映射器。<br>在spring3.1之后使用<code>org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter</code>注解适配器。<br>使用<code>mvc:annotation-driven</code>代替上边注解映射器和注解适配器配置</p><h2 id="spring-与-mybatis整合过程"><a class="markdownIt-Anchor" href="#spring-与-mybatis整合过程"></a> spring 与 mybatis整合过程</h2><ul><li>第一步：整合dao层<br>mybatis和spring整合，通过spring管理mapper接口。<br>使用mapper的扫描器自动扫描mapper接口在spring中进行注册。</li><li>第二步：整合service层<br>通过spring管理 service接口。<br>使用配置方式将service接口配置在spring配置文件中。<br>实现事务控制。</li><li>第三步：整合springmvc<br>由于springmvc是spring的模块，不需要整合。<br>主要配置有：<ul><li>mybatis配置文件sqlMapConfig.xml配置别名自动扫描(实体类)</li><li>mapper扫描器(接口，数据库访问接口)</li><li>数据库连接池配置</li><li>声明式事务配置</li><li>启用注解扫描：<code>&lt;context:component-scan base-package=&quot;cn.itcast.ssm.controller&quot;&gt;&lt;/context:component-scan&gt;</code></li><li>配置注解映射器和适配器： <code>&lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;</code></li><li>视图解析器：<code>&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</code></li><li>配置控制类： DispatcherServlet前端控制器</li><li>配置spring配置文件加载类：ClassLoadListener</li></ul></li></ul><h2 id="sqlmapconfigxml"><a class="markdownIt-Anchor" href="#sqlmapconfigxml"></a> sqlMapConfig.xml</h2><h2 id="配置数据源"><a class="markdownIt-Anchor" href="#配置数据源"></a> 配置数据源</h2><h2 id="事务控制"><a class="markdownIt-Anchor" href="#事务控制"></a> 事务控制</h2><p>(applicationContext-transaction.xml)，在applicationContext-transaction.xml中使用spring声明式事务控制方法。</p><h2 id="加载spring配置"><a class="markdownIt-Anchor" href="#加载spring配置"></a> 加载spring配置</h2><h2 id="静态资源访问不被拦截"><a class="markdownIt-Anchor" href="#静态资源访问不被拦截"></a> 静态资源访问不被拦截：</h2><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">xml</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span> <span class="attr">mapping</span>=<span class="string">"/resources/**"</span> <span class="attr">location</span>=<span class="string">"/resources/"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span> <span class="attr">mapping</span>=<span class="string">"/images/**"</span> <span class="attr">location</span>=<span class="string">"/images/"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span> <span class="attr">mapping</span>=<span class="string">"/js/**"</span> <span class="attr">location</span>=<span class="string">"/js/"</span> /&gt;</span></span><br></pre></td></tr></table></figure></div><h2 id="requestmapping的作用"><a class="markdownIt-Anchor" href="#requestmapping的作用"></a> @RequestMapping的作用</h2><ul><li>url映射</li><li>窄化请求映射</li><li>限制http请求方法</li></ul><h2 id="controller方法的返回值"><a class="markdownIt-Anchor" href="#controller方法的返回值"></a> controller方法的返回值</h2><ul><li>返回ModelAndView<br>需要方法结束时，定义ModelAndView，将model和view分别进行设置。</li><li>返回string<br>表示返回逻辑视图名。真正视图(jsp路径)=前缀+逻辑视图名+后缀<br>redirect重定向：返回字符串格式为：“redirect:queryItem.action”<br>forward页面转发：返回字符串格式为：“forward:queryItem.action”</li><li>返回void<br>在controller方法形参上可以定义request和response，使用request或response指定响应结果：<ul><li>使用request转向页面，如下：request.getRequestDispatcher(“页面路径”).forward(request, response);</li><li>也可以通过response页面重定向：response.sendRedirect(“url”)</li><li>也可以通过response指定响应结果，例如响应json数据如下：  <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">response.getWriter().write(<span class="string">"json串"</span>);</span><br></pre></td></tr></table></figure></div></li></ul></li></ul><h2 id="参数绑定"><a class="markdownIt-Anchor" href="#参数绑定"></a> 参数绑定：</h2><ol><li>默认支持的类型<br>直接在controller方法形参上定义下边类型的对象，就可以使用这些对象。在参数绑定过程中，如果遇到下边类型直接进行绑定。<ul><li>HttpServletRequest：通过request对象获取请求信息</li><li>HttpServletResponse：通过response处理响应信息</li><li>HttpSession：通过session对象得到session中存放的对象</li><li>Model/ModelMap：model是一个接口，modelMap是一个接口实现 。作用：将model数据填充到request域。</li></ul></li><li>简单类型<br>通过@RequestParam对简单类型的参数进行绑定。<br>如果不使用@RequestParam，要求request传入参数名称和controller方法的形参名称一致，方可绑定成功。<br>如果使用@RequestParam，不用限制request传入参数名称和controller方法的形参名称一致。<br>通过required属性指定参数是否必须要传入，如果设置为true，没有传入参数，会报错。</li><li>pojo绑定<br>页面中input的name和controller的pojo形参中的属性名称一致，将页面中数据绑定到pojo。(usename,age；不需要user.username,user.age)</li><li>自定义参数绑定实现日期类型绑定<br>对于controller形参中pojo对象，如果属性中有日期类型，需要自定义参数绑定。将请求日期数据串转成 日期类型，要转换的日期类型和pojo中日期属性的类型保持一致。</li></ol><h2 id="spring-mvc-和-struts2-对比"><a class="markdownIt-Anchor" href="#spring-mvc-和-struts2-对比"></a> Spring MVC 和 Struts2 对比</h2><ol><li>Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应，所以说从架构本身上SpringMVC 就容易实现restful url</li><li>由上边原因，SpringMVC的方法之间基本上独立的，独享request response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码 读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。</li><li>由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。</li><li>SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。</li><li>springmvc面向方法开发的（更接近service接口的开发方式），struts2面向类开发。</li><li>springmvc可以单例开发，struts2只能是多例开发。</li></ol><h2 id="乱码处理"><a class="markdownIt-Anchor" href="#乱码处理"></a> 乱码处理</h2><ol><li>post乱码<br>在web.xml添加post乱码filter：CharacterEncodingFilter</li><li>对于get请求中文参数出现乱码解决方法有两个：<ul><li>修改tomcat配置文件添加编码与工程编码一致，如下：<br><code>&lt;Connector URIEncoding=&quot;utf-8&quot; connectionTimeout=&quot;20000&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot;/&gt;</code></li><li>对参数进行重新编码：<br>String userName = new  String(request.getParamter(“userName”).getBytes(“ISO8859-1”),“utf-8”)<br>ISO8859-1是tomcat默认编码，需要将tomcat编码后的内容按utf-8编码</li></ul></li></ol><h2 id="集合类型绑定"><a class="markdownIt-Anchor" href="#集合类型绑定"></a> 集合类型绑定</h2><ol><li>数组绑定：<br>controller方法参数使用：(Integer[] itemId)<br>页面统一使用:itemId 作为name</li><li>list绑定：<br>pojo属性名为：itemsList<br>页面：<code>itemsList[index].属性名</code></li><li>map 绑定：<br>pojo属性名为：<code>Map&lt;String, Object&gt; itemInfo = new HashMap&lt;String, Object&gt;();</code><br>页面： <code>&lt;td&gt;</code>姓名：<code>&lt;inputtype=&quot;text&quot;name=&quot;itemInfo['name']&quot;/&gt;</code></li></ol><h2 id="spring-校验"><a class="markdownIt-Anchor" href="#spring-校验"></a> spring 校验</h2><ol><li>项目中，通常使用较多是前端的校验，比如页面中js校验。对于安全要求较高点建议在服务端进行校验。</li><li>springmvc使用hibernate的校验框架validation(和hibernate没有任何关系)。<br>校验思路：页面提交请求的参数，请求到controller方法中，使用validation进行校验。如果校验出错，将错误信息展示到页面。</li></ol><h2 id="数据回显"><a class="markdownIt-Anchor" href="#数据回显"></a> 数据回显</h2><ul><li><code>@ModelAttribute</code>还可以将方法的返回值传到页面：在方法上加注解<code>@ModelAttribute</code></li><li>使用最简单方法使用model，可以不用<code>@ModelAttribute：model.addAttribute(&quot;id&quot;, id);</code></li><li>springmvc默认对pojo数据进行回显。pojo数据传入controller方法后，springmvc自动将pojo数据放到request域，key等于pojo类型（首字母小写）</li><li><code>public String testParam(PrintWriter out, @RequestParam(&quot;username&quot;) String username) { //out直接输出}</code></li></ul><h2 id="异常处理"><a class="markdownIt-Anchor" href="#异常处理"></a> 异常处理</h2><p>springmvc提供全局异常处理器（一个系统只有一个异常处理器）进行统一异常处理。<br>系统遇到异常，在程序中手动抛出，dao抛给service、service给controller、controller抛给前端控制器，前端控制器调用全局异常处理器。</p><h2 id="上传图片"><a class="markdownIt-Anchor" href="#上传图片"></a> 上传图片</h2><ol><li>在页面form中提交<code>enctype=&quot;multipart/form-data&quot;</code>的数据时，需要springmvc对multipart类型的数据进行解析。</li><li>在springmvc.xml中配置multipart类型解析器。</li><li>方法中使用：MultipartFile attach (单个文件上传) 或者  MultipartFile[] attachs (多个文件上传)</li></ol><h2 id="json处理"><a class="markdownIt-Anchor" href="#json处理"></a> Json处理</h2><ol><li>加载json转换的jar包：springmvc中使用jackson的包进行json转换（<code>@requestBody</code>和<code>@responseBody</code>使用下边的包进行json转）</li><li>配置json转换器。在注解适配器RequestMappingHandlerAdapter中加入messageConverters。如果使用<code>&lt;mvc:annotation-driven /&gt;</code> 则会自动加入。</li><li>ajax</li><li>Controller (ResponseBody、RequestBody)</li><li>注意ajax中contentType如果不设置为json类型，则传的参数为key/value类型。上面设置后，传的是json类型。<br>详见：<a href="http://www.cnblogs.com/Jtianlin/p/5224885.html">http://www.cnblogs.com/Jtianlin/p/5224885.html</a></li></ol><h2 id="拦截器"><a class="markdownIt-Anchor" href="#拦截器"></a> 拦截器：</h2><ol><li>定义拦截器，实现HandlerInterceptor接口。接口中提供三个方法。<br>a. preHandle ：进入 Handler方法之前执行，用于身份认证、身份授权，比如身份认证，如果认证通过表示当前用户没有登陆，需要此方法拦截不再向下执行<br>b. postHandle：进入Handler方法之后，返回modelAndView之前执行，应用场景从modelAndView出发：将公用的模型数据(比如菜单导航)在这里传到视图，也可以在这里统一指定视图<br>c. afterCompletion：执行Handler完成执行此方法，应用场景：统一异常处理，统一日志处理</li><li>拦截器配置：<br>a. 针对HandlerMapping配置(不推荐)：springmvc拦截器针对HandlerMapping进行拦截设置，如果在某个HandlerMapping中配置拦截，经过该 HandlerMapping映射成功的handler最终使用该 拦截器。(一般不推荐使用)<br>b. 类似全局的拦截器：springmvc配置类似全局的拦截器，springmvc框架将配置的类似全局的拦截器注入到每个HandlerMapping中</li></ol><h2 id="如何启用注解-2"><a class="markdownIt-Anchor" href="#如何启用注解-2"></a> 如何启用注解：</h2><p><code>&lt;context:annotation-config/&gt;</code><br>如果使用<code>&lt;context:component-scan base-package=&quot;com.tgb.web.controller.annotation&quot;&gt; &lt;/context:component-scan&gt;</code> 则上面内容可以省略<br>使用<code>mvc:annotation-driven</code>代替注解映射器和注解适配器配置</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+          <category> 计算机 </category>
+          
+          <category> 框架学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
+            
+            <tag> java </tag>
+            
+            <tag> 问答 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring MVC 摘要</title>
+      <link href="/2020/01/29/SpringMVC%E6%91%98%E8%A6%81/"/>
+      <url>/2020/01/29/SpringMVC%E6%91%98%E8%A6%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="spring-mvc-概述"><a class="markdownIt-Anchor" href="#spring-mvc-概述"></a> Spring MVC 概述</h2><p>Spring MVC是Spring提供的一个强大而灵活的web框架。借助于注解，Spring MVC提供了几乎是POJO的开发模式，使得控制器的开发和测试更加简单。这些控制器一般不直接处理请求，而是将其委托给Spring上下文中的其他bean，通过Spring的依赖注入功能，这些bean被注入到控制器中。</p><p>Spring MVC主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。他的两个核心是两个核心：</p><ul><li>处理器映射：选择使用哪个控制器来处理请求</li><li>视图解析器：选择结果应该如何渲染</li></ul><p>通过以上两点，Spring MVC保证了如何选择控制处理请求和如何选择视图展现输出之间的松耦合。</p><h2 id="spring-mvc-运行原理"><a class="markdownIt-Anchor" href="#spring-mvc-运行原理"></a> Spring MVC 运行原理</h2><p><a href="/img/blog/spring_mvc_abstract_01.png" data-fancybox="group" data-caption="SpringMVC运行原理" class="fancybox"><img alt="SpringMVC运行原理" title="SpringMVC运行原理" data-src="/img/blog/spring_mvc_abstract_01.png" class="lazyload"></a></p><ol><li>Http请求：客户端请求提交到DispatcherServlet。</li><li>寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li><li>调用处理器：DispatcherServlet将请求提交到Controller。</li><li>调用业务处理和返回结果：Controller调用业务逻辑处理后，返回ModelAndView。</li><li>处理视图映射并返回模型： DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图。</li><li>Http响应：视图负责将结果显示到客户端。</li></ol><h2 id="spring-mvc-接口解释"><a class="markdownIt-Anchor" href="#spring-mvc-接口解释"></a> Spring MVC 接口解释</h2><h3 id="dispatcherservlet接口"><a class="markdownIt-Anchor" href="#dispatcherservlet接口"></a> DispatcherServlet接口</h3><p>Spring提供的前端控制器，所有的请求都有经过它来统一分发。在DispatcherServlet将请求分发给Spring Controller之前，需要借助于Spring提供的HandlerMapping定位到具体的Controller。</p><p>是整个Spring MVC的核心。它负责接收HTTP请求组织协调Spring MVC的各个组成部分。其主要工作有以下三项：</p><ol><li>截获符合特定格式的URL请求。</li><li>初始化DispatcherServlet上下文对应WebApplicationContext，并将其与业务层、持久化层的WebApplicationContext建立关联。</li><li>初始化Spring MVC的各个组成组件，并装配到DispatcherServlet中。</li></ol><h3 id="handlermapping接口"><a class="markdownIt-Anchor" href="#handlermapping接口"></a> HandlerMapping接口</h3><p>能够完成客户请求到Controller映射。</p><h3 id="controller接口"><a class="markdownIt-Anchor" href="#controller接口"></a> Controller接口</h3><p>需要为并发用户处理上述请求，因此实现Controller接口时，必须保证线程安全并且可重用。<br>Controller将处理用户请求，这和Struts Action扮演的角色是一致的。一旦Controller处理完用户请求，则返回ModelAndView对象给DispatcherServlet前端控制器，ModelAndView中包含了模型（Model）和视图（View）。<br>从宏观角度考虑，DispatcherServlet是整个Web应用的控制器；从微观考虑，Controller是单个Http请求处理过程中的控制器，而ModelAndView是Http请求过程中返回的模型（Model）和视图（View）。</p><h3 id="viewresolver接口"><a class="markdownIt-Anchor" href="#viewresolver接口"></a> ViewResolver接口</h3><p>Spring提供的视图解析器（ViewResolver）在Web应用中查找View对象，从而将相应结果渲染给客户。</p><h2 id="spring-mvc-配置"><a class="markdownIt-Anchor" href="#spring-mvc-配置"></a> Spring MVC 配置</h2><p>略</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+          <category> 计算机 </category>
+          
+          <category> 框架学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>书签整理</title>
       <link href="/2020/01/29/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/"/>
       <url>/2020/01/29/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/</url>
@@ -178,9 +242,9 @@
       
         <tags>
             
-            <tag> utils </tag>
-            
             <tag> java </tag>
+            
+            <tag> utils </tag>
             
             <tag> nginx </tag>
             
@@ -211,9 +275,9 @@
       
         <tags>
             
-            <tag> utils </tag>
-            
             <tag> java </tag>
+            
+            <tag> utils </tag>
             
         </tags>
       
