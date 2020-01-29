@@ -291,10 +291,10 @@ reward:
   QR_code:
     - itemlist:
         img: /img/wechat.png
-        text: 微信
-    # - itemlist:
-        # img: /img/alipay.jpg
-        # text: 支付寶
+        text: wechat
+    - itemlist:
+        img: /img/alipay.png
+        text: alipay
 
 # 推薦文章
 related_post:
