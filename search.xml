@@ -77,7 +77,7 @@
       <link href="/2020/01/29/%E5%8D%8E%E5%B1%B1%E6%94%BB%E7%95%A5/"/>
       <url>/2020/01/29/%E5%8D%8E%E5%B1%B1%E6%94%BB%E7%95%A5/</url>
       
-        <content type="html"><![CDATA[<h2 id="待整理"><a class="markdownIt-Anchor" href="#待整理"></a> 待整理</h2><pre class="mermaid">graph TD;    A-->B;    A-->C;    B-->D;    C-->D;</pre>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
@@ -415,31 +415,6 @@
             <tag> markdown </tag>
             
             <tag> 标准 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>文章分类列表</title>
-      <link href="/2020/01/29/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8/"/>
-      <url>/2020/01/29/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8/</url>
-      
-        <content type="html"><![CDATA[<h2 id="categories"><a class="markdownIt-Anchor" href="#categories"></a> categories</h2><ul><li>学习笔记<ul><li>计算机<ul><li>软件教程</li><li>编程随笔</li><li>源码学习</li><li>框架学习</li><li>算法题解</li><li>论文学习</li></ul></li><li>数学<ul><li>论文学习</li><li>课程笔记<ul><li>概率论</li><li>积分</li></ul></li></ul></li></ul></li><li>文学摘录</li><li>管理<ul><li>企业管理</li><li>团队管理</li></ul></li><li>经济学<ul><li>宏观经济学</li><li>微观经济学</li></ul></li><li>文档记录<ul><li>接口文档</li><li>问题跟踪</li><li>待办列表</li><li>旅游攻略</li><li>菜谱</li></ul></li></ul><h2 id="tags"><a class="markdownIt-Anchor" href="#tags"></a> tags</h2><ul><li>programing</li><li>reflect</li><li>Mybatis</li><li>MySQL</li><li>Tomcat</li><li>Linux</li><li>logs</li><li>raspberry</li><li>Redis</li><li>annotation</li><li>notes</li><li>utils</li><li>RegularExpression</li><li>http</li><li>bat</li><li>DesignPattern</li><li>PTA</li><li>论文摘要</li><li>abap</li><li>actionscript</li><li>apache</li><li>apiblueprint</li><li>applescript</li><li>awk</li><li>biml</li><li>bsl</li><li>c</li><li>ceylon</li><li>cfscript</li><li>clojure</li><li>cmake</li><li>coffeescript</li><li>common_lisp</li><li>conf</li><li>console</li><li>coq</li><li>cpp</li><li>crystal</li><li>csharp</li><li>css</li><li>d</li><li>dart</li><li>diff</li><li>digdag</li><li>docker</li><li>dot</li><li>eiffel</li><li>elixir</li><li>elm</li><li>erb</li><li>erlang</li><li>factor</li><li>fortran</li><li>fsharp</li><li>gherkin</li><li>glsl</li><li>go</li><li>gradle</li><li>graphql</li><li>groovy</li><li>hack</li><li>haml</li><li>handlebars</li><li>haskell</li><li>hcl</li><li>html</li><li>http</li><li>hylang</li><li>idlang</li><li>igorpro</li><li>ini</li><li>io</li><li>irb</li><li>irb_output</li><li>java</li><li>javascript</li><li>jinja</li><li>json</li><li>jsonnet</li><li>jsp</li><li>jsx</li><li>julia</li><li>kotlin</li><li>lasso</li><li>liquid</li><li>literate_coffeescript</li><li>literate_haskell</li><li>llvm</li><li>lua</li><li>m68k</li><li>make</li><li>markdown</li><li>mathematica</li><li>matlab</li><li>moonscript</li><li>mosel</li><li>mxml</li><li>nasm</li><li>nginx</li><li>nim</li><li>nix</li><li>objective_c</li><li>ocaml</li><li>pascal</li><li>perl</li><li>php</li><li>plaintext</li><li>plist</li><li>pony</li><li>powershell</li><li>praat</li><li>prolog</li><li>prometheus</li><li>properties</li><li>protobuf</li><li>puppet</li><li>python</li><li>q</li><li>qml</li><li>r</li><li>racket</li><li>ruby</li><li>rust</li><li>sass</li><li>scala</li><li>scheme</li><li>scss</li><li>sed</li><li>shell</li><li>sieve</li><li>slim</li><li>smalltalk</li><li>smarty</li><li>sml</li><li>sqf</li><li>sql</li><li>swift</li><li>tap</li><li>tcl</li><li>terraform</li><li>tex</li><li>toml</li><li>tsx</li><li>tulip</li><li>turtle</li><li>twig</li><li>typescript</li><li>vala</li><li>vb</li><li>verilog</li><li>vhdl</li><li>viml</li><li>vue</li><li>wollok</li><li>xml</li><li>yaml</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 文档记录 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 模板 </tag>
             
         </tags>
       
