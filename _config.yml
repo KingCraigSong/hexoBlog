@@ -4,7 +4,7 @@
 ## hexo版本：hexo-cli: 1.1.0
 
 # 网站
-title: Hexo Blog # 网站标题
+title: Xiaomo's Blog # 网站标题
 subtitle: # 网站副标题
 description: # 网站描述(SEO)
 author: Xiaomo # 您的名字
@@ -14,7 +14,7 @@ timezone: # 网站时区
 # 网址
 ## 如果你的网站放在子目录中，请将url设置为为'http://yoursite.com/child'，将根目录root设置为'/child/'
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hexo.xmsong.cn # 网址
+url: http://blog.xmsong.cn # 网址
 root: / # 网站根目录
 permalink: :year/:month/:day/:title/ # 文章的永久链接
 permalink_defaults: # 永久链接中各部分的默认值
