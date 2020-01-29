@@ -3,7 +3,7 @@ title: Spring and Spring MVC 总结
 date: 2020-01-29 19:58:46
 tags: [spring,java,问答]
 categories:
-- [学习笔记]
+- 学习笔记
 - 计算机
 - 框架学习
 ---

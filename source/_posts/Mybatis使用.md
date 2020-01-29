@@ -3,7 +3,7 @@ title: Mybatis使用
 date: 2020-01-29 20:19:02
 tags: [mybatis]
 categories:
-- [学习笔记]
+- 学习笔记
 - 计算机
 - 编程随笔
 ---
