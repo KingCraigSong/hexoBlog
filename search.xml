@@ -4,6 +4,68 @@
   
     
     <entry>
+      <title>滑动窗口算法</title>
+      <link href="/2020/01/30/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/"/>
+      <url>/2020/01/30/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="详见"><a class="markdownIt-Anchor" href="#详见"></a> 详见</h2><p><a href="https://www.zhihu.com/topic/20746237/intro">https://www.zhihu.com/topic/20746237/intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+          <category> 计算机 </category>
+          
+          <category> 算法题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> programing </tag>
+            
+            <tag> 滑动窗口 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>哑节点的妙用</title>
+      <link href="/2020/01/30/%E5%93%91%E8%8A%82%E7%82%B9%E7%9A%84%E5%A6%99%E7%94%A8/"/>
+      <url>/2020/01/30/%E5%93%91%E8%8A%82%E7%82%B9%E7%9A%84%E5%A6%99%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h2><p>哑节点是在处理与链表相关的操作时，设置在链表头之前的指向链表头的节点，用于简化与链表头相关的操作。</p><h2 id="问题引入"><a class="markdownIt-Anchor" href="#问题引入"></a> 问题引入</h2><p>在刷leetcode时，遇到了删除链表的倒数第N个节点的问题。这个问题并不复杂，对于有一定编程经验的人来说，答题者很快就能想到使用双指针法来解决这一问题：<br>两个指针都指向链表头部，然后一个指针先向后跳n个节点，然后两个指针同时沿链表向后跳，当第一个指针指向最后一个节点时，另外一个指针指向的就是需要被删除的节点。</p><p>初始代码</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode n1=head;</span><br><span class="line">        ListNode n2=head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">            n1=n1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(n1.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">            n1=n1.next;</span><br><span class="line">            n2=n2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        n2.next=n2.next.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></div><p>对于普通的测试样例（即不涉及头尾操作的样例），这种写法都可以通过。</p><p>但是当我面对操作头节点的问题时，代码就无法通过测试了。<br>例如：我们一共有四个节点，需要删除倒数第四个节点。<br>因为当我们删除了头节点的时候，我们用什么来返回链表呢？</p><h2 id="哑节点妙用"><a class="markdownIt-Anchor" href="#哑节点妙用"></a> 哑节点妙用</h2><p>在经过各种复杂的尝试之后，我还是解决了这个问题，一种方法是我需要定义更多的节点来指向各种各样的特殊位置，另一种方法就是不使用原链表，对原链表进行复制，逐个添加进新链表。这两种方法具体写起来都比较复杂。<br>在看答案之后，我发现答案引入了哑节点，其实也就是在我最初的代码上进行很小的修改，就完美解决了问题：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">java</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    dummy.next = head;</span><br><span class="line">    ListNode first = dummy;</span><br><span class="line">    ListNode second = dummy;</span><br><span class="line">    <span class="comment">// Advances first pointer so that the gap between first and second is n nodes apart</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        first = first.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Move first to the end, maintaining the gap</span></span><br><span class="line">    <span class="keyword">while</span> (first != <span class="keyword">null</span>) &#123;</span><br><span class="line">        first = first.next;</span><br><span class="line">        second = second.next;</span><br><span class="line">    &#125;</span><br><span class="line">    second.next = second.next.next;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><hr><p>上述代码作者：LeetCode<br>链接：<a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-by-l/">https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-by-l/</a><br>来源：力扣（LeetCode）<br>以上代码就是在我的代码的基础上添加了dummy节点，用于指向head节点，完美解决了头节点的操作问题。</p><p>版权声明：本文为CSDN博主「Terminator ld」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/weixin_44388094/article/details/100929840">https://blog.csdn.net/weixin_44388094/article/details/100929840</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+          <category> 计算机 </category>
+          
+          <category> 算法题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> programing </tag>
+            
+            <tag> 哑节点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mybatis使用</title>
       <link href="/2020/01/29/Mybatis%E4%BD%BF%E7%94%A8/"/>
       <url>/2020/01/29/Mybatis%E4%BD%BF%E7%94%A8/</url>
