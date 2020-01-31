@@ -14,6 +14,7 @@ categories:
 Recently I've been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working on. Their aim is to explain how to use Restful web services to handle many of the integration problems that enterprises face. At the heart of the book is the notion that the web is an existence proof of a massively scalable distributed system that works really well, and we can take ideas from that to build integrated systems more easily.
 
 ![Steps toward REST](/img/blog/Richardson成熟度模型/Figure1.png)
+Figure 1.Steps toward REST
 
 To help explain the specific properties of a web-style system, the authors use a model of restful maturity that was developed by Leonard Richardson and [explained](https://www.crummy.com/writing/speaking/2008-QCon/act3.html) at a QCon talk. The model is nice way to think about using these techniques, so I thought I'd take a stab of my own explanation of it. (The protocol examples here are only illustrative, I didn't feel it was worthwhile to code and test them up, so there may be problems in the detail.)
 
@@ -22,6 +23,7 @@ To help explain the specific properties of a web-style system, the authors use a
 The starting point for the model is using HTTP as a transport system for remote interactions, but without using any of the mechanisms of the web. Essentially what you are doing here is using HTTP as a tunneling mechanism for your own remote interaction mechanism, usually based on [Remote Procedure Invocation](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EncapsulatedSynchronousIntegration.html).
 
 ![An example interaction at Level 0](/img/blog/Richardson成熟度模型/Figure2.png)
+Figure 2.An example interaction at Level 0
 
 Let's assume I want to book an appointment with my doctor. My appointment software first needs to know what open slots my doctor has on a given date, so it makes a request of the hospital appointment system to obtain that information. In a level 0 scenario, the hospital will expose a service endpoint at some URI. I then post to that endpoint a document containing the details of my request.
 
@@ -94,6 +96,7 @@ So far this is a straightforward RPC style system. It's simple as it's just slin
 The first step towards the Glory of Rest in the RMM is to introduce resources. So now rather than making all our requests to a singular service endpoint, we now start talking to individual resources.
 
 ![Level 1 adds resources](/img/blog/Richardson成熟度模型/Figure3.png)
+Figure 3.Level 1 adds resources
 
 So with our initial query, we might have a resource for given doctor.
 
@@ -148,6 +151,7 @@ To an object guy like me this is like the notion of object identity. Rather than
 I've used HTTP POST verbs for all my interactions here in level 0 and 1, but some people use GETs instead or in addition. At these levels it doesn't make much difference, they are both being used as tunneling mechanisms allowing you to tunnel your interactions through HTTP. Level 2 moves away from this, using the HTTP verbs as closely as possible to how they are used in HTTP itself.
 
 ![Level 2 addes HTTP verbs](/img/blog/Richardson成熟度模型/Figure4.png)
+Figure 4.Level 2 addes HTTP verbs
 
 For our the list of slots, this means we want to use GET.
 
@@ -220,6 +224,7 @@ The key elements that are supported by the existence of the web are the strong s
 The final level introduces something that you often hear referred to under the ugly acronym of HATEOAS (Hypertext As The Engine Of Application State). It addresses the question of how to get from a list open slots to knowing what to do to book an appointment.
 
 ![Level 3 adds hypermedia controls](/img/blog/Richardson成熟度模型/Figure5.png)
+Figure 5.Level 3 adds hypermedia controls
 
 We begin with the same initial GET that we sent in level 2
 
