@@ -101,3 +101,9 @@ mermaid:
   enable: true
   version: "7.1.2"
 #   options: 
+
+markdown:
+  plugins:
+    - markdown-it-abbr
+    - markdown-it
+    - footnotemarkdown-it-checkbox # 本行启用了 checkbox 插件

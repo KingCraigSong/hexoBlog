@@ -314,6 +314,7 @@ Talking about this with Ian Robinson, he stressed that something he found attrac
 The result is a model that helps us think about the kind of HTTP service we want to provide and frame the expectations of people looking to interact with it.
 
 
+*[RMM]: Richardson Maturity Model
 ---
 原文作者：Martin Fowler
 [链接](https://martinfowler.com/articles/richardsonMaturityModel.html)
