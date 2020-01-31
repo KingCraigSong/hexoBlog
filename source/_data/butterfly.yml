@@ -216,7 +216,7 @@ valine:
   appKey: # leancloud application app key
   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
   verify: false # valine verify code (true/false)
-  pageSize: 10 # comment list page size
+  pageSize: 20 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: en # i18n: zh-cn/en
   placeholder: Please leave your footprints # valine comment input placeholder(like: Please leave your footprints )
