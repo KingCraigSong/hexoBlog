@@ -106,4 +106,4 @@ markdown:
   plugins:
     - markdown-it-abbr
     - markdown-it-footnote
-    - markdown-it-checkbox # 本行启用了 checkbox 插件
+    # - markdown-it-checkbox # 本行启用了 checkbox 插件
