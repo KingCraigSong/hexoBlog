@@ -97,7 +97,8 @@ search:
 # mermaid chart
 ## mermaid url https://github.com/knsv/mermaid
 # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-mermaid:
+
+mermaid: # - npm install hexo-filter-mermaid-diagrams
   enable: false
   version: "7.1.2"
 #   options: 
