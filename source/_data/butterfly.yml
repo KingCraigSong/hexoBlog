@@ -287,7 +287,7 @@ Flink:
 
 # 打賞按鈕
 reward:
-  enable: true
+  enable: false
   QR_code:
     - itemlist:
         img: /img/wechat.png
@@ -365,7 +365,7 @@ canvas_ribbon_piao:
 
 # canvas_nest
 canvas_nest:
-  enable: true
+  enable: false
   color: "0,0,255" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
@@ -416,7 +416,7 @@ display_mode: light
 
 # 美化post頁顯示
 post_beautify:
-  enable: true
+  enable: false
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: "#F47466"
 
@@ -489,11 +489,11 @@ aside_mobile: true
 aside:
   position: right # left or right
   card_author: true
-  card_announcement: true
+  card_announcement: false
   card_recent_post: true
   card_categories: true
   card_tags: true
-  card_archives: true
+  card_archives: false
   card_webinfo: true
 
 # 網站公告
@@ -511,7 +511,7 @@ busuanzi:
 # 格式: 月/日/年 時間
 # 也可以寫成 年/月/日 時間
 runtimeshow:
-  enable: true
+  enable: false
   start_date: 1/1/2020 00:00:00
 
 ####   右下角按鈕  ####
@@ -598,7 +598,7 @@ note:
 # 圖片懶加載
 # https://github.com/aFarkas/lazysizes
 lazyload:
-  enable: true
+  enable: false
 
 # 避免重複網址分散seo
 canonical: true
