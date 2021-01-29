@@ -36,7 +36,7 @@ jobs:
         with:
           local: /home/runner/work/hexoBlog/hexoBlog/build
           remote: /usr/local/html/blog
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.USER }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
           rmRemote: true
