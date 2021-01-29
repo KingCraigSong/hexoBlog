@@ -4,8 +4,7 @@ name: Build And Deploy To Github Pages
 # workflow的触发事件，这里代表main分支的push事件触发
 on:
   push:
-    branches: 
-    - main
+    branches: [ main ]
 
 # 任务
 jobs:
@@ -25,9 +24,8 @@ jobs:
 
       # 执行npm脚本打包项目
       - name: Install and Build
-        run: |
-          npm install
-          npm run build
+        run: npm install
+        run: npm run build
       
       # 执行JamesIves/github-pages-deploy-action将项目发布到Github Pages
       - name: Deploy
