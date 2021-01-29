@@ -13,16 +13,20 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
 
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      with:
-        # 该workflow需要操作repo，因此需要一个密钥，下面会讲到如何获取这个密钥
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        # 发布到的分支
-        BRANCH: gh-pages
-        # 要发布的文件夹
-        FOLDER: public
-        BUILD_SCRIPT: npm install && npm run build
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch

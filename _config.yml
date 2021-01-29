@@ -21,7 +21,7 @@ permalink_defaults: # 永久链接中各部分的默认值
 
 # 目录
 source_dir: source # 资源文件夹，这个文件夹用来存放内容。
-public_dir: public # 公共文件夹，这个文件夹用于存放生成的站点文件。
+public_dir: build # 公共文件夹，这个文件夹用于存放生成的站点文件。
 tag_dir: tags # 标签文件夹
 archive_dir: archives # 归档文件夹
 category_dir: categories # 分类文件夹
