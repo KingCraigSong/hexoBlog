@@ -1,27 +1,27 @@
-sudo: false
-language: node_js
-node_js:
-  - 10 # use nodejs v10 LTS
-cache: npm
-branches:
-  only:
-    - master # build master branch only
-script:
-  - npm un hexo-renderer-marked --save
-  - npm un hexo-math --save
-  - npm install cheerio@0.22.0 --save
-  - npm install hexo-renderer-pug hexo-renderer-stylus --save
-  - npm install @upupming/hexo-renderer-markdown-it-plus --save
-  - npm install hexo-generator-search --save
-  - npm uninstall hexo-generator-index --save
-  - npm install hexo-generator-index-pin-top --save
-  - hexo clean
-  - hexo generate
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  on:
-    branch: master
-  local-dir: public
+# sudo: false
+# language: node_js
+# node_js:
+#   - 10 # use nodejs v10 LTS
+# cache: npm
+# branches:
+#   only:
+#     - master # build master branch only
+# script:
+#   - npm un hexo-renderer-marked --save
+#   - npm un hexo-math --save
+#   - npm install cheerio@0.22.0 --save
+#   - npm install hexo-renderer-pug hexo-renderer-stylus --save
+#   - npm install @upupming/hexo-renderer-markdown-it-plus --save
+#   - npm install hexo-generator-search --save
+#   - npm uninstall hexo-generator-index --save
+#   - npm install hexo-generator-index-pin-top --save
+#   - hexo clean
+#   - hexo generate
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GH_TOKEN
+#   keep-history: true
+#   on:
+#     branch: master
+#   local-dir: public
