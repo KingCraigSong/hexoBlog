@@ -44,15 +44,13 @@ jobs:
 
       - name: deploy to tencent
         uses: cross-the-world/ssh-pipeline@master
-        env:
-          WELCOME: "ssh pipeline"
         with:
+          command: |
+            ifconfig
+            rm -rf /docker-compose/nginx/html/blog
+            tar -zxvf /docker-compose/nginx/html/blog.tar.gz -C /docker-compose/nginx/html/blog
           host: ${{ secrets.SERVER_IP }}
           user: ${{ secrets.USER }}
           key: ${{ secrets.PRIVATE_KEY }}
-          connect_timeout: 10s
-          script: |
-            rm -rf /docker-compose/nginx/html/blog
-            tar -zxvf /docker-compose/nginx/html/blog.tar.gz -C /docker-compose/nginx/html/blog
 
             
