@@ -1,14 +1,16 @@
 ---
+layout: posts
 title: Java开发者易犯错误Top10
 date: 2020-01-31 16:38:59
-tags: [java]
+cover: false
+top_img: false
+tags:
+  - java
 categories:
-- 学习笔记
-- 计算机
-- 编程随笔
+  - 学习笔记
+  - 计算机
+  - 编程随笔
 ---
-
-    本文总结了Java开发者经常会犯的前十种错误列表。
 
 ## 数组转换为数组列表
 

@@ -35,8 +35,6 @@ avatar:
 
 # 加載動畫 Loading Animation
 preloader: true
-# the banner image of index
-index_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 
 # 主頁subtitle
@@ -78,9 +76,9 @@ subtitle:
 # ---------------
 highlight_theme: light # default / darker / pale night / light / ocean
 highlight_copy: true #代碼複製按鈕
-highlight_lang: true #代碼語言顯示
+highlight_lang: false #代碼語言顯示
 highlight_shrink: false # true 全部代碼框不展開，需點擊 '>' 打開 / false 代碼框展開，有'>'點擊按鈕 | none 代碼框展開，不顯示 '>' 按鈕
-code_word_wrap: true
+code_word_wrap: false
 
 
 # 主頁文章COVER顯示位置
@@ -149,7 +147,7 @@ post_copyright:
   enable: false
 
 related_post:
-  enable: true
+  enable: false
   limit: 6 # 顯示推薦文章數目
   date_type: created # or created or updated 文章日期顯示創建日或者更新日
 
@@ -192,25 +190,39 @@ disable_baidu_transformation: true
 
 
 
-
 # # the banner image of index
 # index_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg
+# the banner image of index
+index_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # if the banner of page not setting,it will show the top_img
-default_top_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg
+default_top_img: 'linear-gradient(135deg, rgba(109,179,242,1) 0%,rgba(84,163,238,0.93) 47%,rgba(30,105,222,0.86) 100%)'
 
 # the default cover of the post
-default_cover: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/default.png
+cover:
+  # display the cover or not (是否顯示文章封面)
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
+  # the position of cover in home page (封面顯示的位置)
+  # left/right/both
+  position: both
+  # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
+  default_cover: 
+    - 'linear-gradient(#e66465, #9198e5)'
+    - 'linear-gradient(135deg, rgba(109,179,242,1) 0%,rgba(84,163,238,0.93) 47%,rgba(30,105,222,0.86) 100%)'
+    - 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # the banner image of archive page
-archive_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/archive.jpg
+archive_img: 'linear-gradient(#e66465, #9198e5)'
 
 # the banner image of tag page
-tag_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/tag.png
+tag_img: 'linear-gradient(135deg, rgba(109,179,242,1) 0%,rgba(84,163,238,0.93) 47%,rgba(30,105,222,0.86) 100%)'
+tag_per_img: 
 
 # the banner image of category page
-category_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/category.jpg
-
+category_img: 'linear-gradient(#e66465, #9198e5)'
+category_per_img: 
 
 # 打賞按鈕
 reward:
