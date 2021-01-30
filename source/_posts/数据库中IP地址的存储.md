@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 数据库中IP地址的存储
 date: 2020-01-29 10:52:36
 cover: false
