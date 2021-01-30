@@ -54,6 +54,6 @@ jobs:
           script: |
             cd /root/docker-compose/nginx/html
             rm -rf ./blog
-            tar -zxvf tmp.tar.gz -C ./blog
+            tar -zxvf blog.tar.gz -C ./blog
 
             
