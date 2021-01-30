@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script src="xm-javascript-utils.js"></script>
+
+<script>
+    console.log(xmUtils.floatFormatter(123.222, 2, true));
+
+    var arr = [{
+        a: 1,
+        b: 2
+    }, {
+        a: 1,
+        b: 1
+    }, {
+        a: 3,
+        b: 2
+    }, {
+        a: 4,
+        b: 2
+    }, {
+        a: 3,
+        b: 1
+    }, {
+        a: 4,
+        b: 1
+    }];
+    arr.sort(function (a, b) {
+        return xmUtils.sortByProps(a, b, {
+            "a": "asc",
+            "b": "desc"
+        });
+    });
+    console.log(arr)
+
+</script>
+
+</html>

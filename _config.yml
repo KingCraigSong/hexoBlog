@@ -4,12 +4,12 @@
 ## hexo版本：hexo-cli: 1.1.0
 
 # 网站
-title: Xiaomo's Blog # 网站标题
+title: 小莫札记 # 网站标题
 subtitle: # 网站副标题
 description: # 网站描述(SEO)
 author: Xiaomo # 您的名字
-language: en # 网站使用的语言
-timezone: # 网站时区
+language: zh-CN # 网站使用的语言
+# timezone: Asia/Shanghai# 网站时区
 
 # 网址
 ## 如果你的网站放在子目录中，请将url设置为为'http://yoursite.com/child'，将根目录root设置为'/child/'
@@ -18,6 +18,9 @@ url: http://blog.xmsong.cn # 网址
 root: / # 网站根目录
 permalink: :year/:month/:day/:title/ # 文章的永久链接
 permalink_defaults: # 永久链接中各部分的默认值
+pretty_urls:
+  trailing_index: false  #是否在永久链接中保留尾部的 index.html，设置为 false 时去除
+  trailing_html: false   #是否在永久链接中保留尾部的 .html, 设置为 false 时去除 (对尾部的 index.html无效)
 
 # 目录
 source_dir: source # 资源文件夹，这个文件夹用来存放内容。
@@ -37,26 +40,7 @@ external_link: true # 在新标签中打开外部链接
 filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false # 显示草稿
 post_asset_folder: true # 启动asset文件夹
-marked:
-  prependRoot: true
-  postAsset: true
-relative_link: false # 把链接改为与根目录的相对位址
-future: true # 显示未来的文章
-highlight: # 代码块的设置
-  enable: true # 启动设置
-  line_number: false # 行号
-  auto_detect: false # 自动检测
-  tab_replace: # tab替换
-  
-# 主页设置
-# path: Root path for your blogs index page. (默认 = '')
-# per_page: Posts displayed per page. (0 = 关闭分页功能)
-# order_by: Posts order. (默认情况下按日期降序排序)
-index_generator: # 索引生成
-  path: '' # 路径
-  per_page: 10 # 每页展示文章数
-  order_by: -date # 排序依据
-  
+
 # 分类 & 标签
 default_category: uncategorized # 默认分类
 category_map: # 分类别名
@@ -77,13 +61,20 @@ pagination_dir: page # 分页目录
 # 拓展
 ## 插件：https://hexo.io/plugins/ #
 ## 主题：https://hexo.io/themes/
-theme: Butterfly # 当前主题名称。值为false时禁用主题
-
+theme: butterfly # 当前主题名称。值为false时禁用主题
 # 部署
 ## 文档: https://hexo.io/docs/deployment.html
 deploy: # 部署部分的设置
   type: # 网站类型
 
+
+
+
+highlight: # 代码块的设置
+  enable: true # 启动设置
+  line_number: false # 行号
+  auto_detect: false # 自动检测
+  tab_replace: true # tab替换
 markdown_it_plus:
   plugins:
     - plugin:
@@ -97,17 +88,27 @@ search:
   field: post
   content: true
 
-# mermaid chart
-## mermaid url https://github.com/knsv/mermaid
-# find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-
-mermaid: # - npm install hexo-filter-mermaid-diagrams
-  enable: false
-  version: "7.1.2"
-#   options: 
 
 markdown:
   plugins:
     - markdown-it-abbr
     - markdown-it-footnote
     # - markdown-it-checkbox # 本行启用了 checkbox 插件
+
+# MathJax
+# Please see doc for more details: https://jerryc.me/posts/21cfbf15/#MathJax
+# ---------------
+mathjax:
+  enable: false
+  # true 表示每一頁都加載mathjax.js
+  # false 需要時加載，須在使用的Markdown Front-matter 加上 mathjax: true
+  per_page: false
+
+# KaTeX
+# ---------------
+katex:
+  enable: true
+  # true 表示每一頁都加載katex.js
+  # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true
+  per_page: false
+  hide_scrollbar: true

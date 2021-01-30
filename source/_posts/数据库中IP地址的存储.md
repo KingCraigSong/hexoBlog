@@ -1,8 +1,11 @@
 ---
-layout: posts
 title: 数据库中IP地址的存储
 date: 2020-01-29 10:52:36
-tags: [java,utils]
+cover: false
+top_img: false
+tags: 
+- java
+- 工具类
 categories: 
 - 学习笔记
 - 计算机

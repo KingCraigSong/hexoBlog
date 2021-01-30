@@ -1,0 +1,10 @@
+	openssl genrsa -out base.key 2048   （无脑复制粘贴）
+	openssl req -new -x509 -nodes -key base.key -days 10000 -subj "/CN=49.233.39.109" -out base.pem     （49.233.39.109为ip或域名）
+	openssl genrsa -out server.key 2048		（无脑复制粘贴）
+	openssl req -new -key server.key -subj "/CN=49.233.39.109" -out server.csr	（49.233.39.109为ip或域名）
+	echo subjectAltName = IP:49.233.39.109 > extfile.cnf    （49.233.39.109为ip或域名）
+	openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -extfile extfile.cnf -days 10000 -out server.crt
+
+
+	nohup ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain="49.233.39.109" -httpAddr=":8880" -httpsAddr=":8883"   &
+

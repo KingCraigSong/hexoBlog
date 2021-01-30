@@ -1,8 +1,11 @@
 ---
-layout: posts
 title: 字符串转Double
 date: 2020-01-29 10:41:14
-tags: java
+cover: false
+top_img: false
+tags: 
+- java
+- 算法
 categories: 
 - 学习笔记
 - 计算机
