@@ -43,14 +43,13 @@ jobs:
           rmRemote: true
 
       - name: deploy to tencent
-        uses: cross-the-world/ssh-pipeline@master
+        uses: appleboy/ssh-action@master
         with:
-          command: |
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          script: |
             ifconfig
             rm -rf /docker-compose/nginx/html/blog
             tar -zxvf /docker-compose/nginx/html/blog.tar.gz -C /docker-compose/nginx/html/blog
-          host: ${{ secrets.SERVER_IP }}
-          user: ${{ secrets.USER }}
-          key: ${{ secrets.PRIVATE_KEY }}
-
             
