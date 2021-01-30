@@ -36,7 +36,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: /home/runner/work/hexoBlog/hexoBlog/blog.tar.gz
-          remote: /docker-compose/nginx/html/blog.tar.gz
+          remote: /docker-compose/nginx/blog.tar.gz
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.USER }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
@@ -49,8 +49,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
-            (rm -rf /docker-compose/nginx/html/blog || true)
-            tar -zxvf /docker-compose/nginx/html/blog.tar.gz -C /docker-compose/nginx/html
-            mkdir /docker-compose/nginx/html/blog
-            mv /docker-compose/nginx/html/build /docker-compose/nginx/html/blog
+            (rm -rf /docker-compose/nginx/html/* || true)
+            tar -zxvf /docker-compose/nginx/blog.tar.gz -C /docker-compose/nginx
+            mv /docker-compose/nginx/build/* /docker-compose/nginx/html/
+            (rm -rf /docker-compose/nginx/build || true)
             
