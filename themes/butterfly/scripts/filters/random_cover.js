@@ -11,8 +11,8 @@ hexo.extend.filter.register('before_post_render', function (data) {
     const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/
     const topImg = data.top_img
     const cover = data.cover
-    if (topImg && topImg.indexOf('/') === -1 && imgTestReg.test(topImg)) data.top_img = data.path + topImg
-    if (cover && cover.indexOf('/') === -1) data.cover = data.path + cover
+    if (topImg && topImg.indexOf('/') === -1 && topImg.indexOf('linear-gradient')==-1 && imgTestReg.test(topImg)) data.top_img = data.path + topImg
+    if (cover && cover.indexOf('/') === -1  && cover.indexOf('linear-gradient')==-1) data.cover = data.path + cover
   }
 
   if (data.cover === false) {
