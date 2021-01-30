@@ -54,7 +54,6 @@ copy:
 social:
   fa fa-github: https://github.com/KingCraigSong
   fa fa-envelope: mailto:455716751@qq.com
-  fa fa-rss: /atom.xml
 
 ####    search    ####
 # Algolia search
@@ -73,6 +72,10 @@ algolia_search:
 # Please see doc for more details: https://jerryc.me/posts/21cfbf15/#本地搜索
 # ---------------
 local_search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
   enable: true
   labels:
     input_placeholder: Search for Posts
@@ -125,7 +128,7 @@ movies_img: https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/mo
 lodding_bg:
   flink: /img/friend_404.gif #404后圖片
   post_page: /img/404.jpg #404后圖片
-#  post: /img/loading.gif ##加載動畫
+  post: /img/loading.gif ##加載動畫
 
 post_meta:
   date_type: both # or created or updated 文章日期是创建日或者更新日或都显示
