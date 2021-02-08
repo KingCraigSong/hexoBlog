@@ -141,7 +141,7 @@ footer:
   owner:
     enable: true
     since: 2020
-  custom_text: <a href="#"><span>ICP备：进行中</span></a>
+  custom_text: <a href="https://beian.miit.gov.cn/#/Integrated/index"><span>京ICP备2021004430号</span></a>
 
 post_copyright:
   enable: false

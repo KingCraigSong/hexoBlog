@@ -68,7 +68,7 @@ System.out.println(list);
 
 输出是：
 
-```java
+```bash
 [b, d]
 ```
 
