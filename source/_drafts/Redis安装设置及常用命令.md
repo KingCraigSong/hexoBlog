@@ -22,7 +22,7 @@ linux版的可以到https://redis.io/ 或者是 http://www.redis.cn/ 下载需�
 1. 把redis的源码包上传到linux系统，如果直接在Linux环境下下载的，不需要这步。
 2. 使用tar -zxvf redis-3.x.x.tar.gz解压源码包
 3. 进入解压出来的目录redis-3.x.x
-4. 使用make install PREFIX=编译源码，生成可执行文件
+4. 使用make install PREFIX=/usr/local/redis-3.2.9编译源码，生成可执行文件
 
 \- PREFIX参数：指定安装目录
 
