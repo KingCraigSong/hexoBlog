@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>常见的安全相关HTTP响应头介绍</title>
+      <link href="2021/04/21/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3HTTP%E5%93%8D%E5%BA%94%E5%A4%B4%E4%BB%8B%E7%BB%8D/"/>
+      <url>2021/04/21/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3HTTP%E5%93%8D%E5%BA%94%E5%A4%B4%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<p>以下这些，可以通过设置Nginx返回头部信息，或者在代码里添加filter，统一添加返回头信息。</p><h2 id="X-Frame-Options"><a href="#X-Frame-Options" class="headerlink" title="X-Frame-Options"></a>X-Frame-Options</h2><ol><li><p>介绍<br><code>X-Frame-Options</code> 是为了减少点击劫持（Clickjacking）而引入的一个响应头。Chrome4+、Firefox3.6.9+、IE8+均支持，详细的浏览器支持情况<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options?redirectlocale=en-US&redirectslug=The_X-FRAME-OPTIONS_response_header#browser_compatibility">看这里</a>。<br>如果某页面被不被允许的页面以<code>&lt;iframe&gt;</code>或<code>&lt;frame&gt;</code>的形式嵌入，IE会显示类似于“此内容无法在框架中显示”的提示信息，Chrome和Firefox都会在控制台打印信息。由于嵌入的页面不会加载，这就减少了点击劫持的发生。</p></li><li><p>用例</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x-frame-options: SAMEORIGIN</span><br></pre></td></tr></table></figure></li><li><p>取值：</p></li></ol><ul><li>DENY：不允许被任何页面嵌入；</li><li>SAMEORIGIN：不允许被本域以外的页面嵌入；</li><li>ALLOW-FROM uri：不允许被指定的域名以外的页面嵌入（Chrome现阶段不支持）；</li></ul><h2 id="X-XSS-Protection"><a href="#X-XSS-Protection" class="headerlink" title="X-XSS-Protection"></a>X-XSS-Protection</h2><ol><li><p>介绍<br>顾名思义，这个响应头是用来防范XSS的。浏览器提供的XSS保护机制并不完美，但是开启后仍然可以提升攻击难度，如果没有特殊需要，建议开启它。</p></li><li><p>用例</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X-XSS-Protection: 1; mode&#x3D;block</span><br></pre></td></tr></table></figure></li><li><p>取值：</p></li></ol><ul><li>0：禁用XSS保护；</li><li>1：启用XSS保护；</li><li>1; mode=block：启用XSS保护，并在检查到XSS攻击时，停止渲染页面（例如IE8中，检查到攻击时，整个页面会被一个#替换）；</li></ul><h2 id="X-Content-Type-Options"><a href="#X-Content-Type-Options" class="headerlink" title="X-Content-Type-Options"></a>X-Content-Type-Options</h2><ol><li>介绍<br>互联网上的资源有各种类型，通常浏览器会根据响应头的 <code>Content-Type</code> 字段来分辨它们的类型。<br>例如：<code>text/html</code> 代表html文档，<code>image/png</code>是PNG图片，<code>text/css</code>是CSS样式文档。</li></ol><p>然而，有些资源的 <code>Content-Type</code> 是错的或者未定义。这时，某些浏览器会启用 <code>MIME-sniffing</code> 来猜测该资源的类型，解析内容并执行。<br>例如，我们即使给一个html文档指定<code>Content-Type为text/plain</code>，在IE8-中这个文档依然会被当做html来解析。利用浏览器的这个特性，攻击者甚至可以让原本应该解析为图片的请求被解析为JavaScript。</p><ol start="2"><li>用例<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X-Content-Type-Options: nosniff</span><br></pre></td></tr></table></figure></li><li>取值：<br>这个响应头的值只能是 nosniff，可用于IE8+和Chrome。另外，它还被Chrome用于扩展下载，<a href="https://developer.chrome.com/extensions/hosting">见这里</a>。</li></ol><h2 id="Strict-Transport-Security"><a href="#Strict-Transport-Security" class="headerlink" title="Strict-Transport-Security"></a>Strict-Transport-Security</h2><ol><li>介绍<br>HTTP Strict Transport Security，简称为 HSTS 。它允许一个HTTPS网站，要求浏览器总是通过HTTPS来访问它。<br>现阶段，除了Chrome浏览器，Firefox4+，以及Firefox的NoScript扩展都支持这个响应头。</li></ol><p>我们知道HTTPS相对于HTTP有更好的安全性，而很多HTTPS网站，也可以通过HTTP来访问。开发人员的失误或者用户主动输入地址，都有可能导致用户以HTTP访问网站，降低了安全性。一般，我们会通过Web Server发送301/302重定向来解决这个问题。<br>现在有了HSTS，可以让浏览器帮你做这个跳转，省一次HTTP请求。另外，浏览器本地替换可以保证只会发送HTTPS请求，避免被劫持。</p><ol start="2"><li>用例<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">strict-transport-security: max-age&#x3D;16070400; includeSubDomains</span><br></pre></td></tr></table></figure></li><li>取值：<br><code>includeSubDomains</code> 是可选的，用来指定是否作用于子域名。支持HSTS的浏览器遇到这个响应头，会把当前网站加入<code>HSTS</code>列表，然后在max-age指定的秒数内，当前网站所有请求都会被重定向为https。即使用户主动输入 <code>http://</code> 或者不输入协议部分，都将重定向到 <code>https://</code> 地址。</li></ol><p>Chrome内置了一个HSTS列表，默认包含Google、Paypal、Twitter、Linode等等服务。我们也可以在Chrome输入<code>chrome://net-internals/#hsts</code>，进入HSTS管理界面。在这个页面，你可以增加/删除/查询<code>HSTS</code>记录。例如，你想一直以<code>https</code>访问某网址，通过<code>“add Domain”</code>加上去就好了。<br>查看Chrome内置的全部HSTS列表，或者想把自己的网站加入这个列表，<a href="https://www.chromium.org/hsts">请点这里</a>。</p><h2 id="X-Content-Security-Policy"><a href="#X-Content-Security-Policy" class="headerlink" title="X-Content-Security-Policy"></a>X-Content-Security-Policy</h2><ol><li>介绍<br>Content Security Policy，简称 CSP。顾名思义，这个规范与内容安全有关，主要是用来定义页面可以加载哪些资源，减少 XSS 的发生。<br>CSP 协议可以控制的内容非常多。而且如果不特别指定 unsafe-inline 时，页面上所有 inline 样式和脚本都不会执行；不特别指定 unsafe-eval，页面上不允许使用 new Function，setTimeout，eval 等方式执行动态代码。在限制了页面资源来源之后，被 XSS 的风险确实小不少。</li></ol><p>当然，仅仅依靠 CSP 来防范 XSS 是远远不够的，不支持全部浏览器是它的硬伤。不过，鉴于低廉的开发成本，加上也没什么坏处</p><ol start="2"><li><p>用例</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Content-Security-Policy: default-src &#39;self&#39;</span><br></pre></td></tr></table></figure><p>注：default-src 是 CSP 指令，多个指令之间用英文分号分割；‘self’ 是指令值，多个指令值用英文空格分割</p></li><li><p>取值：</p></li></ol><table><thead><tr><th>指令</th><th>指令值示例</th><th>说明</th></tr></thead><tbody><tr><td>default-src</td><td>‘self’ cnd.a.com</td><td>定义针对所有类型（js、image、css、web font，ajax 请求，iframe，多媒体等）资源的默认加载策略，某类型资源如果没有单独定义策略，就使用默认的。</td></tr><tr><td>script-src</td><td>‘self’ js.a.com</td><td>定义针对 JavaScript 的加载策略。</td></tr><tr><td>style-src</td><td>‘self’ css.a.com</td><td>定义针对样式的加载策略。</td></tr><tr><td>img-src</td><td>‘self’ img.a.com</td><td>定义针对图片的加载策略。</td></tr><tr><td>connect-src</td><td>‘self’</td><td>针对 Ajax、WebSocket 等请求的加载策略。不允许的情况下，浏览器会模拟一个状态为 400 的响应。</td></tr><tr><td>font-src</td><td>font.a.com</td><td>针对 WebFont 的加载策略。</td></tr><tr><td>object-src</td><td>‘self’</td><td>针对 <code>&lt;object&gt;</code>、<code>&lt;embed&gt;</code> 或 <code>&lt;applet&gt;</code> 等标签引入的 flash 等插件的加载策略。</td></tr><tr><td>media-src</td><td>media.a.com</td><td>针对 <code>&lt;audio&gt;</code> 或 <code>&lt;video&gt;</code> 等标签引入的 HTML 多媒体的加载策略。</td></tr><tr><td>frame-src</td><td>‘self’</td><td>针对 frame 的加载策略。</td></tr><tr><td>sandbox</td><td>allow-forms</td><td>对请求的资源启用 sandbox（类似于 iframe 的 sandbox 属性）。</td></tr><tr><td>report-uri</td><td>/report-uri</td><td>告诉浏览器如果请求的资源不被策略允许时，往哪个地址提交日志信息。 特别的：如果想让浏览器只汇报日志，不阻止任何内容，可以改用 <code>Content-Security-Policy-Report-Only</code> 头。</td></tr></tbody></table><p>待处理</p><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>Referrer-Policy<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>no-referrer-when-downgrade<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>X-Permitted-Cross-Domain-Policies<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>master-only<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>X-Download-Options<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>noopen<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>————————————————<br>版权声明：本文为CSDN博主「小白旗」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_37788558/article/details/105460837">https://blog.csdn.net/qq_37788558/article/details/105460837</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java导入Excel特殊字符处理</title>
       <link href="2021/02/03/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java%E5%AF%BC%E5%85%A5Excel%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86/"/>
       <url>2021/02/03/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java%E5%AF%BC%E5%85%A5Excel%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86/</url>
@@ -62,31 +89,6 @@
     
     
     <entry>
-      <title>书单</title>
-      <link href="2020/01/29/000_%E4%B9%A6%E5%8D%95/"/>
-      <url>2020/01/29/000_%E4%B9%A6%E5%8D%95/</url>
-      
-        <content type="html"><![CDATA[<h2 id="计算机"><a href="#计算机" class="headerlink" title="计算机"></a>计算机</h2><table><thead><tr><th>科目</th><th>最佳书籍</th><th>最佳视频</th></tr></thead><tbody><tr><td>分布式系统</td><td>《分布式系统原理与范型》（中文第二版，英文第三版）</td><td></td></tr><tr><td>操作系统</td><td>《操作系统导论》</td><td>Berkeley CS 162</td></tr><tr><td>数学知识</td><td>《计算机科学中的数学》</td><td>Tom Leighton’s MIT 6.042J</td></tr><tr><td>数据库</td><td>《Readings in Database Systems》 （暂无中译本）</td><td>Joe Hellerstein’s Berkeley CS 186</td></tr><tr><td>算法与数据结构</td><td>《算法设计手册》</td><td>Steven Skiena’s lectures</td></tr><tr><td>编程</td><td>《计算机程序的构造和解释》</td><td>Brian Harvey’s Berkeley CS 61A</td></tr><tr><td>编程语言与编译器</td><td>《编译原理》</td><td>Alex Aiken’s course on Lagunita</td></tr><tr><td>计算机架构</td><td>《计算机组成与设计》</td><td>Berkeley CS 61C</td></tr><tr><td>计算机网络</td><td>《计算机网络：自顶向下方法》</td><td>Stanford CS 144</td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> 文档记录 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 书单 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>日志文件分割定期删除处理</title>
       <link href="2020/01/29/%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%88%86%E5%89%B2%E5%AE%9A%E6%9C%9F%E5%88%A0%E9%99%A4%E5%A4%84%E7%90%86/"/>
       <url>2020/01/29/%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%88%86%E5%89%B2%E5%AE%9A%E6%9C%9F%E5%88%A0%E9%99%A4%E5%A4%84%E7%90%86/</url>
@@ -108,6 +110,31 @@
             <tag> bash </tag>
             
             <tag> 运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>书单</title>
+      <link href="2020/01/29/000_%E4%B9%A6%E5%8D%95/"/>
+      <url>2020/01/29/000_%E4%B9%A6%E5%8D%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="计算机"><a href="#计算机" class="headerlink" title="计算机"></a>计算机</h2><table><thead><tr><th>科目</th><th>最佳书籍</th><th>最佳视频</th></tr></thead><tbody><tr><td>分布式系统</td><td>《分布式系统原理与范型》（中文第二版，英文第三版）</td><td></td></tr><tr><td>操作系统</td><td>《操作系统导论》</td><td>Berkeley CS 162</td></tr><tr><td>数学知识</td><td>《计算机科学中的数学》</td><td>Tom Leighton’s MIT 6.042J</td></tr><tr><td>数据库</td><td>《Readings in Database Systems》 （暂无中译本）</td><td>Joe Hellerstein’s Berkeley CS 186</td></tr><tr><td>算法与数据结构</td><td>《算法设计手册》</td><td>Steven Skiena’s lectures</td></tr><tr><td>编程</td><td>《计算机程序的构造和解释》</td><td>Brian Harvey’s Berkeley CS 61A</td></tr><tr><td>编程语言与编译器</td><td>《编译原理》</td><td>Alex Aiken’s course on Lagunita</td></tr><tr><td>计算机架构</td><td>《计算机组成与设计》</td><td>Berkeley CS 61C</td></tr><tr><td>计算机网络</td><td>《计算机网络：自顶向下方法》</td><td>Stanford CS 144</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文档记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 书单 </tag>
             
         </tags>
       
