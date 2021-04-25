@@ -1,6 +1,8 @@
 ---
 title: 常见的安全相关HTTP响应头介绍
 date: 2021-04-21 08:57:23
+cover: false
+top_img: false
 tags: [HTTP,网络安全]
 categories: 学习笔记
 ---

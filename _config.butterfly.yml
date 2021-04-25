@@ -34,7 +34,7 @@ avatar:
   effect: false # 頭像會一直轉圈
 
 # 加載動畫 Loading Animation
-preloader: true
+preloader: false
 
 
 # 主頁subtitle
