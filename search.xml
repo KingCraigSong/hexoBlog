@@ -8,7 +8,7 @@
       <link href="2021/04/26/JVM%E7%AC%94%E8%AE%B0/"/>
       <url>2021/04/26/JVM%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/JMM.svg" alt="JMM"></p><h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/class_loader.svg" alt="JMM"></p><h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/JVM_GC.jpg" alt="JMM"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/JMM.svg" alt="JMM"></p><h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/class_loader.svg" alt="class_loader"></p><h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><p><img src="/2021/04/26/JVM%E7%AC%94%E8%AE%B0/JVM_GC.jpg" alt="JVM_GC"></p>]]></content>
       
       
       <categories>
