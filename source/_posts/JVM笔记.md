@@ -15,7 +15,7 @@ categories:
 
 ## 类加载器
 
-![JMM](双亲委派.svg)
+![JMM](class_loader.svg)
 
 ## GC 
 
