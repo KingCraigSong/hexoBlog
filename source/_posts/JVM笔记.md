@@ -11,12 +11,12 @@ categories:
 
 ## JMM 
 
-![JMM](../../img/blog/JVM/JMM.svg)
+![JMM](JMM.svg)
 
 ## 类加载器
 
-![JMM](../../img/blog/JVM/双亲委派.svg)
+![JMM](双亲委派.svg)
 
 ## GC 
 
-![JMM](../../img/blog/JVM/JMM_GC.svg)
+![JMM](JMM_GC.svg)

@@ -40,6 +40,9 @@ external_link: true # 在新标签中打开外部链接
 filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false # 显示草稿
 post_asset_folder: true # 启动asset文件夹
+marked:
+  prependRoot: true
+  postAsset: true
 
 # 分类 & 标签
 default_category: uncategorized # 默认分类
