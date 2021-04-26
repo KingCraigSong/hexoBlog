@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="60 59 949 946" width="949" height="946">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="PingFang SC" font-size="16" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
+      <font-face-src>
+        <font-face-name name="PingFangSC-Regular"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-26 01:29:02 +0000</metadata>
+  <g id="JVM____" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" fill="none" stroke="none">
+    <title>JVM 基础结构</title>
+    <rect fill="white" x="60" y="59" width="949" height="946"/>
+    <g id="JVM_____Layer_5">
+      <title>Layer 5</title>
+      <g id="Graphic_43">
+        <rect x="61" y="60" width="947" height="944" fill="white"/>
+        <rect x="61" y="60" width="947" height="944" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="JVM_____class-file">
+      <title>class-file</title>
+      <g id="Graphic_2">
+        <path d="M 366 169.5 L 223 169.5 L 223 246.8688 C 265.9 237.1977 323.1 275.88208 366 256.53988 Z" fill="white"/>
+        <path d="M 366 169.5 L 223 169.5 L 223 246.8688 C 265.9 237.1977 323.1 275.88208 366 256.53988 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_3">
+        <path d="M 350 179.6445 L 207 179.6445 L 207 257.0133 C 249.9 247.3422 307.1 286.0266 350 266.6844 Z" fill="white"/>
+        <path d="M 350 179.6445 L 207 179.6445 L 207 257.0133 C 249.9 247.3422 307.1 286.0266 350 266.6844 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_4">
+        <path d="M 331 189.78902 L 188 189.78902 L 188 267.1578 C 230.9 257.4867 288.1 296.1711 331 276.8289 Z" fill="white"/>
+        <path d="M 331 189.78902 L 188 189.78902 L 188 267.1578 C 230.9 257.4867 288.1 296.1711 331 276.8289 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(193 224.08496)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="31.1" y="15">Class-File</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <path d="M 380.5 217.875 L 380.5 204.625 L 482 204.625 L 482 198 L 493 211.25 L 482 224.5 L 482 217.875 Z" fill="white"/>
+        <path d="M 380.5 217.875 L 380.5 204.625 L 482 204.625 L 482 198 L 493 211.25 L 482 224.5 L 482 217.875 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_14">
+        <path d="M 555.625 279.5 L 568.875 279.5 L 568.875 333 L 575.5 333 L 562.25 360 L 549 333 L 555.625 333 Z" fill="white"/>
+        <path d="M 555.625 279.5 L 568.875 279.5 L 568.875 333 L 575.5 333 L 562.25 360 L 549 333 L 555.625 333 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_18">
+        <path d="M 638.875 360 L 625.625 360 L 625.625 306.5 L 619 306.5 L 632.25 279.5 L 645.5 306.5 L 638.875 306.5 Z" fill="white"/>
+        <path d="M 638.875 360 L 625.625 360 L 625.625 306.5 L 619 306.5 L 632.25 279.5 L 645.5 306.5 L 638.875 306.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="JVM_____runtime">
+      <title>runtime</title>
+      <g id="Graphic_21">
+        <rect x="188" y="374" width="595" height="328.289" fill="white"/>
+        <rect x="188" y="374" width="595" height="328.289" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(193 379)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="168.796" y="39">运行时数据区  Runtime Data Area</tspan>
+        </text>
+      </g>
+      <g id="Graphic_45">
+        <rect x="419" y="448.5" width="338" height="215" fill="white"/>
+        <rect x="419" y="448.5" width="338" height="215" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(424 453.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="132" y="17">线程私有</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <rect x="241.5" y="448.5" width="147" height="215" fill="white"/>
+        <rect x="241.5" y="448.5" width="147" height="215" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(246.5 453.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="36.5" y="17">线程共享</tspan>
+        </text>
+      </g>
+      <g id="Graphic_23">
+        <rect x="439" y="597.5" width="294" height="52" fill="#c0c0ff"/>
+        <rect x="439" y="597.5" width="294" height="52" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(444 612.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="102" y="17">程序计数器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_24">
+        <rect x="439" y="503" width="119" height="52" fill="#c0c0ff"/>
+        <rect x="439" y="503" width="119" height="52" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(444 518)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="22.5" y="17">虚拟机栈</tspan>
+        </text>
+      </g>
+      <g id="Graphic_25">
+        <rect x="614" y="503" width="119" height="52" fill="#c0c0ff"/>
+        <rect x="614" y="503" width="119" height="52" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(619 518)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="14.5" y="17">本地方法栈</tspan>
+        </text>
+      </g>
+      <g id="Graphic_26">
+        <rect x="265" y="503" width="106" height="52" fill="#c0ffc0"/>
+        <rect x="265" y="503" width="106" height="52" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(270 518)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="16" y="17">元数据区</tspan>
+        </text>
+      </g>
+      <g id="Graphic_27">
+        <rect x="262" y="597.5" width="106" height="52" fill="#c0ffc0"/>
+        <rect x="262" y="597.5" width="106" height="52" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(267 612.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="19.992" y="17">堆</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="17"> heap</tspan>
+        </text>
+      </g>
+      <g id="Graphic_29">
+        <path d="M 260.125 708.5 L 273.375 708.5 L 273.375 762 L 280 762 L 266.75 789 L 253.5 762 L 260.125 762 Z" fill="white"/>
+        <path d="M 260.125 708.5 L 273.375 708.5 L 273.375 762 L 280 762 L 266.75 789 L 253.5 762 L 260.125 762 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_28">
+        <path d="M 343.375 789 L 330.125 789 L 330.125 735.5 L 323.5 735.5 L 336.75 708.5 L 350 735.5 L 343.375 735.5 Z" fill="white"/>
+        <path d="M 343.375 789 L 330.125 789 L 330.125 735.5 L 323.5 735.5 L 336.75 708.5 L 350 735.5 L 343.375 735.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_31">
+        <path d="M 521.625 708.5 L 534.875 708.5 L 534.875 762 L 541.5 762 L 528.25 789 L 515 762 L 521.625 762 Z" fill="white"/>
+        <path d="M 521.625 708.5 L 534.875 708.5 L 534.875 762 L 541.5 762 L 528.25 789 L 515 762 L 521.625 762 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_30">
+        <path d="M 604.875 789 L 591.625 789 L 591.625 735.5 L 585 735.5 L 598.25 708.5 L 611.5 735.5 L 604.875 735.5 Z" fill="white"/>
+        <path d="M 604.875 789 L 591.625 789 L 591.625 735.5 L 585 735.5 L 598.25 708.5 L 611.5 735.5 L 604.875 735.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_33">
+        <path d="M 468.5 798.125 L 468.5 811.375 L 415 811.375 L 415 818 L 388 804.75 L 415 791.5 L 415 798.125 Z" fill="white"/>
+        <path d="M 468.5 798.125 L 468.5 811.375 L 415 811.375 L 415 818 L 388 804.75 L 415 791.5 L 415 798.125 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_32">
+        <path d="M 388 847.125 L 388 833.875 L 441.5 833.875 L 441.5 827.25 L 468.5 840.5 L 441.5 853.75 L 441.5 847.125 Z" fill="white"/>
+        <path d="M 388 847.125 L 388 833.875 L 441.5 833.875 L 441.5 827.25 L 468.5 840.5 L 441.5 853.75 L 441.5 847.125 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="JVM_____ext">
+      <title>ext</title>
+      <g id="Graphic_34">
+        <path d="M 234.5 793.5 L 357.5 793.5 C 368.5457 793.5 377.5 802.4543 377.5 813.5 L 377.5 833.5 C 377.5 844.5457 368.5457 853.5 357.5 853.5 L 234.5 853.5 C 223.4543 853.5 214.5 844.5457 214.5 833.5 L 214.5 813.5 C 214.5 802.4543 223.4543 793.5 234.5 793.5 Z" fill="#40ffff"/>
+        <path d="M 234.5 793.5 L 357.5 793.5 C 368.5457 793.5 377.5 802.4543 377.5 813.5 L 377.5 833.5 C 377.5 844.5457 368.5457 853.5 357.5 853.5 L 234.5 853.5 C 223.4543 853.5 214.5 844.5457 214.5 833.5 L 214.5 813.5 C 214.5 802.4543 223.4543 793.5 234.5 793.5 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(219.5 803.276)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="44.5" y="17">执行引擎</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="12.652" y="37">Exwcution Engine</tspan>
+        </text>
+      </g>
+      <g id="Graphic_40">
+        <path d="M 504 793.75 L 627 793.75 C 638.0457 793.75 647 802.7043 647 813.75 L 647 833.75 C 647 844.7957 638.0457 853.75 627 853.75 L 504 853.75 C 492.9543 853.75 484 844.7957 484 833.75 L 484 813.75 C 484 802.7043 492.9543 793.75 504 793.75 Z" fill="#40ffff"/>
+        <path d="M 504 793.75 L 627 793.75 C 638.0457 793.75 647 802.7043 647 813.75 L 647 833.75 C 647 844.7957 638.0457 853.75 627 853.75 L 504 853.75 C 492.9543 853.75 484 844.7957 484 833.75 L 484 813.75 C 484 802.7043 492.9543 793.75 504 793.75 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(489 801.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="28.5" y="17">本地方法接口</tspan>
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="17.588" y="39">Native Interface</tspan>
+        </text>
+      </g>
+      <g id="Graphic_41">
+        <path d="M 774.5 793.75 L 897.5 793.75 C 908.5457 793.75 917.5 802.7043 917.5 813.75 L 917.5 833.75 C 917.5 844.7957 908.5457 853.75 897.5 853.75 L 774.5 853.75 C 763.4543 853.75 754.5 844.7957 754.5 833.75 L 754.5 813.75 C 754.5 802.7043 763.4543 793.75 774.5 793.75 Z" fill="#40ffff"/>
+        <path d="M 774.5 793.75 L 897.5 793.75 C 908.5457 793.75 917.5 802.7043 917.5 813.75 L 917.5 833.75 C 917.5 844.7957 908.5457 853.75 897.5 853.75 L 774.5 853.75 C 763.4543 853.75 754.5 844.7957 754.5 833.75 L 754.5 813.75 C 754.5 802.7043 763.4543 793.75 774.5 793.75 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(759.5 812.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="36.5" y="17">本地方法库</tspan>
+        </text>
+      </g>
+      <g id="Graphic_42">
+        <path d="M 662.5 830.125 L 662.5 816.875 L 716 816.875 L 716 810.25 L 743 823.5 L 716 836.75 L 716 830.125 Z" fill="white"/>
+        <path d="M 662.5 830.125 L 662.5 816.875 L 716 816.875 L 716 810.25 L 743 823.5 L 716 836.75 L 716 830.125 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="JVM_____class-loader">
+      <title>class-loader</title>
+      <g id="Graphic_7">
+        <path d="M 529 169.5 L 682.5 169.5 C 693.5457 169.5 702.5 178.4543 702.5 189.5 L 702.5 246.21098 C 702.5 257.25668 693.5457 266.21098 682.5 266.21098 L 529 266.21098 C 517.9543 266.21098 509 257.25668 509 246.21098 L 509 189.5 C 509 178.4543 517.9543 169.5 529 169.5 Z" fill="white"/>
+        <path d="M 529 169.5 L 682.5 169.5 C 693.5457 169.5 702.5 178.4543 702.5 189.5 L 702.5 246.21098 C 702.5 257.25668 693.5457 266.21098 682.5 266.21098 L 529 266.21098 C 517.9543 266.21098 509 257.25668 509 246.21098 L 509 189.5 C 509 178.4543 517.9543 169.5 529 169.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(514 197.6315)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" font-weight="400" fill="black" x="59.75" y="17">类加载器</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="44.638" y="37">Class Loader</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
