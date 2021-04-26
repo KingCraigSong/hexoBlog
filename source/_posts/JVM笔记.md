@@ -19,4 +19,4 @@ categories:
 
 ## GC 
 
-![JMM](JMM_GC.svg)
+![JMM](JMM_GC.jpg)
