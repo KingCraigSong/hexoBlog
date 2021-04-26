@@ -15,8 +15,8 @@ categories:
 
 ## 类加载器
 
-![JMM](class_loader.svg)
+![class_loader](class_loader.svg)
 
 ## GC 
 
-![JMM](JVM_GC.jpg)
+![JVM_GC](JVM_GC.jpg)
