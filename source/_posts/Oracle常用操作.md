@@ -22,8 +22,6 @@ create sequence seq_t_test increment by 1 start with 你想要的值 maxvalue 99
 
 
 
-
-
 1 查看表空间路径
 select * from dba_data_files;
 2、创建用户表空间：

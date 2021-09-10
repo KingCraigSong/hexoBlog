@@ -43,3 +43,31 @@
 ### 热部署
 
     这个需要在conf/server.xml里面看是否reloadable选项设置为了false，默认是true.
+
+### 数据源设置
+
+1. context.xml
+```xml
+<Context>
+  <ResourceLink global="jdbc/ggwl" name="jdbc/ggwl" type="javax.sql.DataSource"/>
+</Context>
+```
+
+2. server.xml
+```xml
+<server>
+  <Resource 
+    scope="Shareable" 
+    type="javax.sql.DataSource" 
+    maxActive="10" 
+    maxIdle="5" 
+    maxWait="10000" 
+    name="jdbc/ggwl" 
+    factory="org.apache.commons.dbcp2.BasicDataSourceFactory" 
+    driverClassName="com.mysql.jdbc.Driver" 
+    url="jdbc:mysql://172.18.66.7:3306/wms?useUnicode=true&amp;characterEncoding=utf8" 
+    username="wms"
+    password="Wms%#!"/>
+</server>
+
+```

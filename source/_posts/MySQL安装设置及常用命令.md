@@ -108,6 +108,12 @@ categories:
   create user 'test'@'localhost' identified by '123456';
   ```
 
+授权
+
+  ```sql
+  GRANT ALL ON datebase_name.* TO 'your_mysql_name'@'your_client_host';
+  ```
+
 刷新授权
 
   ```sql

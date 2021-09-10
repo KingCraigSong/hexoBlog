@@ -20,3 +20,9 @@ categories:
 ## GC 
 
 ![JVM_GC](JVM_GC.jpg)
+
+## 参数
+
+
+
+## 调优
