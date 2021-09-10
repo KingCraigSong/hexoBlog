@@ -39,7 +39,7 @@ jobs:
           remote: /docker-compose/nginx/blog.tar.gz
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.USER }}
-          privateKey: ${{ secrets.PRIVATE_KEY }}
+          password: ${{ secrets.PASSWORD }}
           rmRemote: true
 
       - name: deploy to tencent
@@ -47,7 +47,7 @@ jobs:
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          password: ${{ secrets.PASSWORD }}
           script: |
             (rm -rf /docker-compose/nginx/html/* || true)
             tar -zxvf /docker-compose/nginx/blog.tar.gz -C /docker-compose/nginx
